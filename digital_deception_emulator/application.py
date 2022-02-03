@@ -22,6 +22,7 @@ from digital_deception_emulator.backend.login.views import LoginView
 from digital_deception_emulator.backend.rspan.api import RSPANTestApi
 from digital_deception_emulator.backend.rspan.models.test_sentences import ReadingSpanSentence
 from digital_deception_emulator.backend.rspan.views import RSPANView
+from digital_deception_emulator.backend.configuration import production_config, development_config
 
 
 def initialize_db(session):
@@ -29,28 +30,19 @@ def initialize_db(session):
 
 
 def setup_server(subdomain="/", production=False):
-    server_directory = pathlib.Path(__file__).absolute()
+    server_directory = pathlib.Path(__file__).parent.absolute()
     authentication.initialize(api_key_filepath=server_directory.joinpath("backend", "configuration", "api.key"))
-
-    production_file = server_directory.joinpath("backend", "configuration", "production_config.ini").resolve()
-    development_file = server_directory.joinpath("backend", "configuration", "development_config.ini").resolve()
 
     cherrypy._cpconfig.environments["production"]["log.screen"] = True
 
-    if production and production_file.exists():
+    if production:
         cherrypy.log("Using production configuration")
-        cherrypy.config.update(production_file)
-        active_file = production_file
-    elif not production and development_file.exists():
+        active_file = production_config.get_config()
+    elif not production:
         cherrypy.log("Using development configuration")
-        cherrypy.config.update(development_file)
-        active_file = development_file
-    else:
-        cherrypy.log("No configuration found in working directory!")
-        raise RuntimeError(
-            "No configuration file found in working directory! Please choose either development_config "
-            "or production_config from the configuration directory and place in root!"
-        )
+        active_file = development_config.get_config()
+
+    cherrypy.config.update(active_file)
 
     cherrypy._cperror._HTTPErrorTemplate = cherrypy._cperror._HTTPErrorTemplate.replace(
         'Powered by <a href="http://www.cherrypy.org">CherryPy %(version)s</a>\n', ""
@@ -71,17 +63,17 @@ def setup_server(subdomain="/", production=False):
     cherrypy.tree.mount(RSPANTestApi(), url_utils.combine_url(subdomain, "rspan", "api", "result"), active_file)
     cherrypy.tree.mount(RSPANView(), url_utils.combine_url(subdomain, "rspan", "index"), active_file)
 
-    mysql_file = server_directory.joinpath("mysql.credentials").resolve()
+    mysql_filepath = str(server_directory.joinpath("mysql.credentials").resolve())
 
     # mysql connection:
     # mysql+pymysql://<username>:<password>@<host>/<dbname>[?<options>]
-    if os.path.exists(mysql_file):
-        with open(mysql_file, "r") as mysql_credentials_file:
+    if os.path.exists(mysql_filepath):
+        with open(mysql_filepath, "r") as mysql_credentials_file:
             credentials = json.load(mysql_credentials_file)
             connection_string = str("mysql+pymysql://{username}:{password}@{host}/{db_name}").format_map(credentials)
     else:
         cherrypy.log("Using sqlite database file in lieu of mysql credentials!")
-        database_filepath = server_directory.joinpath("digital_deception.db").resolve()
+        database_filepath = str(server_directory.joinpath("digital_deception.db").resolve())
         connection_string = "sqlite:///" + database_filepath
 
     SQLAlchemyPlugin(

@@ -1,3 +1,6 @@
-recursive-include digital_deception_emulator/frontend/dist *
+recursive-include digital_deception_emulator/frontend/assets *
+recursive-include digital_deception_emulator/frontend/emulator/dist *
+recursive-include digital_deception_emulator/frontend/ospan/dist *
+recursive-include digital_deception_emulator/frontend/rspan/dist *
 recursive-include digital_deception_emulator/frontend/templates *
-recursive-include digital_deception_emulator/backend/configuration *
+include digital_deception_emulator/backend/configuration/api.key
