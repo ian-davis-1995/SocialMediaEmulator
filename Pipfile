@@ -7,6 +7,7 @@ name = "pypi"
 cherrypy = "*"
 cherrypy_utils = { git = "https://git.mindmodeling.org/ian.davis/CherrypyUtils.git" }
 jinja2 = "*"
+sqlalchemy = "*"
 
 [dev-packages]
 black = "*"

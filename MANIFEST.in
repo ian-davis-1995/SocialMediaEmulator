@@ -1,0 +1,2 @@
+recursive-include digital_deception_emulator/frontend/dist *
+recursive-include digital_deception_emulator/frontend/templates *

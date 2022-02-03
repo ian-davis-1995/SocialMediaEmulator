@@ -6,8 +6,8 @@ from collections import OrderedDict
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
-from digital_deception_emulator_backend.database import Base
-from digital_deception_emulator_backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
+from digital_deception_emulator.backend.database import Base
+from digital_deception_emulator.backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
 
 
 def export_csv(output_file, experiment_test_records, get_experiment_event_records, include_mouse_events=False):

@@ -3,7 +3,7 @@ from typing import Dict
 
 from sqlalchemy import Column, DATETIME, Text, String, Integer
 
-from digital_deception_emulator_backend.database import Base, BaseEventRecord
+from digital_deception_emulator.backend.database import Base, BaseEventRecord
 from cherrypy_utils import timestamp_utils
 
 

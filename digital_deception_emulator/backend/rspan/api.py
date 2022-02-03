@@ -1,11 +1,11 @@
 import cherrypy
 import json
 
-from digital_deception_emulator_backend.rspan.models.test_letter_response import ReadingSpanLetterResponse
-from digital_deception_emulator_backend.rspan.models.test_result import ReadingSpanResult
-from digital_deception_emulator_backend.rspan.models.test_sentence_response import ReadingSpanSentenceResponse
+from digital_deception_emulator.backend.rspan.models.test_letter_response import ReadingSpanLetterResponse
+from digital_deception_emulator.backend.rspan.models.test_result import ReadingSpanResult
+from digital_deception_emulator.backend.rspan.models.test_sentence_response import ReadingSpanSentenceResponse
 
-from digital_deception_emulator_backend.rspan.stimuli.sentences import SENTENCE_LIST
+from digital_deception_emulator.backend.rspan.stimuli.sentences import SENTENCE_LIST
 
 from cherrypy_utils import json_utils
 

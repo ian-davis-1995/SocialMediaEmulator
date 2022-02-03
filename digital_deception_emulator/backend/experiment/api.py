@@ -1,6 +1,6 @@
 import cherrypy
 
-from digital_deception_emulator_backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
+from digital_deception_emulator.backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
 from cherrypy_utils import json_utils
 
 

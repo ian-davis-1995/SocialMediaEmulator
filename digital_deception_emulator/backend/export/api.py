@@ -3,10 +3,10 @@ import cherrypy
 import io
 import zipfile
 
-from digital_deception_emulator_backend import domain
+from digital_deception_emulator.backend import domain
 from cherrypy_utils.login import models
-from digital_deception_emulator_backend.export.export_emulator_data import export_session_csv, export_session_summary
-from digital_deception_emulator_backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
+from digital_deception_emulator.backend.export.export_emulator_data import export_session_csv, export_session_summary
+from digital_deception_emulator.backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
 
 from cherrypy.lib import static
 from cherrypy_utils import url_utils

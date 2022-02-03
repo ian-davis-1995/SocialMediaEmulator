@@ -1,3 +1,6 @@
 Pipfile.lock
 /development_config.ini
 /production_config.ini
+build/
+dist/
+*.egg-info
