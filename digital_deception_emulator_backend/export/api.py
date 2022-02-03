@@ -3,13 +3,13 @@ import cherrypy
 import io
 import zipfile
 
-from digital_deception.server.backend import domain
-from utils.login import models
-from digital_deception.server.backend.export.export_emulator_data import export_session_csv, export_session_summary
-from digital_deception.server.backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
+from digital_deception_emulator_backend import domain
+from cherrypy_utils.login import models
+from digital_deception_emulator_backend.export.export_emulator_data import export_session_csv, export_session_summary
+from digital_deception_emulator_backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
 
 from cherrypy.lib import static
-from utils import url_utils
+from cherrypy_utils import url_utils
 
 
 # noinspection PyPep8Naming, PyMethodMayBeStatic

@@ -1,11 +1,11 @@
 from typing import Dict
 from sqlalchemy import Column, DATETIME, Text, String
 
-from digital_deception.server.backend.database import Base, BaseEventRecord
-from digital_deception.server.backend.rspan.models.test_letter_response import ReadingSpanLetterResponse
-from digital_deception.server.backend.rspan.models.test_sentence_response import ReadingSpanSentenceResponse
-from digital_deception.server.backend.rspan.models.test_sentences import ReadingSpanSentence
-from utils import timestamp_utils
+from digital_deception_emulator_backend.database import Base, BaseEventRecord
+from digital_deception_emulator_backend.rspan.models.test_letter_response import ReadingSpanLetterResponse
+from digital_deception_emulator_backend.rspan.models.test_sentence_response import ReadingSpanSentenceResponse
+from digital_deception_emulator_backend.rspan.models.test_sentences import ReadingSpanSentence
+from cherrypy_utils import timestamp_utils
 
 
 class MappedReadingSpanResult(object):

@@ -5,10 +5,14 @@ name = "pypi"
 
 [packages]
 cherrypy = "*"
-cherrypy_utils = { path = "../CherrypyUtils/" }
+cherrypy_utils = { git = "https://git.mindmodeling.org/ian.davis/CherrypyUtils.git" }
+jinja2 = "*"
 
 [dev-packages]
 black = "*"
 
 [requires]
 python_version = "3.6.8"
+
+[pipenv]
+allow_prereleases = true

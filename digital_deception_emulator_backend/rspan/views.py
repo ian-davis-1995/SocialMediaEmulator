@@ -1,7 +1,7 @@
 # noinspection PyPep8Naming, PyMethodMayBeStatic
 import cherrypy
 
-from digital_deception.server.backend import templating
+from digital_deception_emulator_backend import templating
 
 
 @cherrypy.expose

@@ -3,8 +3,8 @@ from typing import Dict
 
 from sqlalchemy import Column, DATETIME, Text, String, Integer
 
-from digital_deception.server.backend.database import Base, BaseEventRecord
-from utils import timestamp_utils
+from digital_deception_emulator_backend.database import Base, BaseEventRecord
+from cherrypy_utils import timestamp_utils
 
 
 class ExperimentTestRecord(Base, BaseEventRecord):
@@ -37,7 +37,7 @@ class ExperimentTestRecord(Base, BaseEventRecord):
                 "subject_id": self.subject_id,
                 "posts": json.loads(self.posts_),
             }
-        else: 
+        else:
             data = {
                 "timestamp": self.timestamp.isoformat(),
                 "emulator_version": self.emulator_version,

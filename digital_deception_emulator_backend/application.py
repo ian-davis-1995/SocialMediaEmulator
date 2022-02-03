@@ -2,23 +2,23 @@ import json
 import os
 
 import cherrypy
-from digital_deception.server.backend.rspan.views import RSPANView
+
+from digital_deception_emulator_backend.rspan.views import RSPANView
 
 # noinspection PyUnresolvedReferences
-from utils import authentication
-from utils import url_utils
-from utils.cherrypy_sqlalchemy_utils import SQLAlchemyTool, SQLAlchemyPlugin
+from cherrypy_utils import authentication
+from cherrypy_utils import url_utils
+from cherrypy_utils.cherrypy_sqlalchemy_utils import SQLAlchemyTool, SQLAlchemyPlugin
 
 # noinspection PyUnresolvedReferences
-from digital_deception.server.backend import templating
-from digital_deception.server.backend import domain
-from digital_deception.server.backend.database import Base
-from digital_deception.server.backend.experiment.api import ExperimentTestApi, ExperimentEventApi
-from digital_deception.server.backend.home.views import HomeView, DashboardView, HeatmapView, PracticeView
-from digital_deception.server.backend.export.api import ExperimentExportApi
-from digital_deception.server.backend.login.views import LoginView
-from digital_deception.server.backend.rspan.api import RSPANTestApi
-from digital_deception.server.backend.rspan.models.test_sentences import ReadingSpanSentence
+from digital_deception_emulator_backend import templating
+from digital_deception_emulator_backend.database import Base
+from digital_deception_emulator_backend.experiment.api import ExperimentTestApi, ExperimentEventApi
+from digital_deception_emulator_backend.home.views import HomeView, DashboardView, HeatmapView, PracticeView
+from digital_deception_emulator_backend.export.api import ExperimentExportApi
+from digital_deception_emulator_backend.login.views import LoginView
+from digital_deception_emulator_backend.rspan.api import RSPANTestApi
+from digital_deception_emulator_backend.rspan.models.test_sentences import ReadingSpanSentence
 
 
 def initialize_db(session):
@@ -26,6 +26,8 @@ def initialize_db(session):
 
 
 def setup_server(subdomain="/", config_location="."):
+    authentication.initialize()
+
     production_file = os.path.join(config_location, "production_config.ini")
     development_file = os.path.join(config_location, "development_config.ini")
 
@@ -51,8 +53,6 @@ def setup_server(subdomain="/", config_location="."):
     )
     cherrypy.server.socket_host = "0.0.0.0"
     cherrypy.tools.digital_deception_database = SQLAlchemyTool("digital_deception")
-
-    domain.set_domain(subdomain)
 
     cherrypy.tree.mount(HomeView(), subdomain, active_file)
     cherrypy.tree.mount(PracticeView(), url_utils.combine_url(subdomain, "practice"), active_file)

@@ -1,15 +1,11 @@
 import cherrypy
-import json
 
-from digital_deception.server.backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
-from utils import json_utils
+from digital_deception_emulator_backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
+from cherrypy_utils import json_utils
 
 
 # noinspection PyPep8Naming, PyMethodMayBeStatic
 @cherrypy.expose
-@cherrypy.tools.require_api_key()
-@cherrypy.tools.json_in()
-@cherrypy.tools.json_out()
 class ExperimentEventApi(object):
     def GET(self, test_id=None, event_type=None):
         if not test_id:
@@ -44,7 +40,6 @@ class ExperimentEventApi(object):
 
 # noinspection PyPep8Naming, PyMethodMayBeStatic
 @cherrypy.expose
-@cherrypy.tools.require_api_key()
 @cherrypy.tools.json_in()
 @cherrypy.tools.json_out()
 class ExperimentTestApi(object):

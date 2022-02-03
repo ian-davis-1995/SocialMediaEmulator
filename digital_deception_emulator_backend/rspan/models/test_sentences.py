@@ -1,9 +1,9 @@
-from digital_deception.server.backend.rspan.stimuli.sentences import SENTENCES
+from digital_deception_emulator_backend.rspan.stimuli.sentences import SENTENCES
 
 from typing import Dict
 from sqlalchemy import Column, Text, Boolean
 
-from digital_deception.server.backend.database import Base, BaseEventRecord
+from digital_deception_emulator_backend.database import Base, BaseEventRecord
 
 
 class ReadingSpanSentence(Base, BaseEventRecord):

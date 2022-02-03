@@ -1,9 +1,9 @@
 import cherrypy
 
-from digital_deception.server.backend import templating
-from digital_deception.server.backend import domain
-from utils import url_utils
-from utils.login.models import authenticate_user, ldap_user_authenticated
+from digital_deception_emulator_backend import templating
+from digital_deception_emulator_backend import domain
+from cherrypy_utils import url_utils
+from cherrypy_utils.login.models import authenticate_user, ldap_user_authenticated
 
 
 # noinspection PyPep8Naming, PyMethodMayBeStatic
