@@ -1,0 +1,5 @@
+.experiment-test-datatable {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -1,0 +1,19 @@
+.main-dashboard-container {
+    height: calc(100%);
+}
+
+/* .export-button {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+} */
+
+.export-button {
+    cursor: pointer;
+}
+
+.export-toolbar {
+    display: flex;
+    position: absolute;
+    top: 50px;
+    right: 300px;
+}

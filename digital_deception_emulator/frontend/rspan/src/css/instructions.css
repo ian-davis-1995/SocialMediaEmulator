@@ -1,0 +1,23 @@
+.instructions-container {
+  text-align: center;
+}
+
+.instructions-title {
+  min-height: min(42px, max(18px, 2.5vw));
+}
+
+.instructions-paragraph {
+  font-size: min(38px, max(18px, 2vw));
+  min-height: min(38px, max(18px, 2vw));
+}
+
+.instructions-continue-prompt {
+  padding: 20px;
+  border: 1px solid gray;
+}
+
+.prompt-disabled {
+  border: 0;
+  background-color: #cccccc;
+  color: #666666;
+}

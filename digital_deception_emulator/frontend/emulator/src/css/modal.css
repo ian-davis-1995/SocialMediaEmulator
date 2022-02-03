@@ -1,0 +1,82 @@
+.modal-dialog {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100% !important; /* Override Bootstrap's max-width parameter of 500px */
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(70, 79, 81, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    backdrop-filter: blur(8px);
+    margin-top: 0;
+    pointer-events: all !important;
+}
+
+.modal-dialog-container, .modal-post-container {
+    margin: auto;
+    padding: 10px;
+    border-radius: 10px;
+    overflow-y: auto;
+    max-width: 95%;
+}
+
+.modal-hidden {
+    display: none;
+}
+
+.modal-visible {
+    display: flex;
+}
+
+.modal-reply-container {
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.modal-replies-height-container {
+    max-height: 250px;
+    overflow: scroll;
+}
+
+.modal-reply-flex-wrapper {
+    display: flex;
+    align-content: center;
+}
+
+.modal-reply-body {
+    display: inline;
+    background-color: #d6d6d6;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.modal-reply-author {
+    margin: 0;
+}
+
+.modal-reply-bar {
+    display: flex;
+}
+
+.modal-profile-picture {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.button.modal-reply-button {
+    margin-left: 32px;
+    font-size: 15px;
+    color: #666666;
+    font-weight: bold;
+    padding: 0;
+}
+
+.close-dialog-button {
+    padding: 0;
+}

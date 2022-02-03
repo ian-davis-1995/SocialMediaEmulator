@@ -1,0 +1,35 @@
+#post-data-provider {
+    height: 95%;
+    width: 97%;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 1.5%;
+    left: 1%;
+    overflow-y: auto;
+}
+
+#post-data-textarea {
+    width: 90%;
+    height: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#post-data-render {
+    padding: 15px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#post-data-provider-title {
+    text-align: center;
+    font-size: 2rem;
+}

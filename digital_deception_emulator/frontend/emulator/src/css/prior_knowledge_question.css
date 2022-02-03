@@ -1,0 +1,113 @@
+.prior-knowledge-question-text {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid black;
+}
+
+.prior-knowledge-answers-container {
+        display: flex;
+        width: 95%;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
+}
+
+.prior-knowledge-answer-container {
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.prior-knowledge-submit-container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 999px) {
+    .prior-knowledge-answers-container {
+        display: block;
+        padding-left: 0px;
+        width: 100%;
+    }
+
+    .prior-knowledge-answer-button {
+        margin-bottom: 5px;
+        width: 26ch !important;
+        margin-left: auto;
+        margin-right: auto;
+        height: 47px !important;
+        display: auto !important;
+    }
+}
+
+.prior-knowledge-answer-button {
+    border-radius: 12px;
+    width: 13ch;
+    height: 95px;
+    background-color: rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 10px;
+}
+
+.prior-knowledge-answer-button.active {
+    background-color: rgb(0, 122, 192);
+    color: white;
+}
+
+.prior-knowledge-answer-button:focus {
+    outline: rgb(14, 167, 255) auto 5px;
+}
+
+.prior-knowledge-answer-button:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.prior-knowledge-button-text {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.prior-knowledge-no-answer-button {
+    font-size: 16px;
+    margin-left: 5px;
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    font-weight:100;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 3px 10px;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.prior-knowledge-no-answer-text {
+    margin: auto;
+}
+
+.prior-knowledge-submit-button {
+    margin-left: 5px;
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: rgba(75, 155, 50, 0.5);
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 0 10px;
+    margin-right: calc(50% - 50px);
+}

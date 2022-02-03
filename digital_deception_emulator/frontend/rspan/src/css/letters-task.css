@@ -1,0 +1,93 @@
+/* Original experiment measurements
+    Display Resolution: 1024 X 768
+    Grid Button size: 200 X 50
+    x margin: 200
+    y margin: 100
+    cell spacing: 125
+
+    percentages:
+    grid button size: 19.5% (of width) X 6.5% (of height)
+    x margin: 19.5% (of width)
+    y margin: 13% (of height)
+ */
+.fullscreen-centered-container.letter-grid-container {
+  justify-content: start;
+}
+
+@media (min-height: 550px) {
+  .fullscreen-centered-container.letter-grid-container {
+    justify-content: space-evenly;
+  }
+}
+
+.letter-grid-title {
+  font-size: min(46px, max(16px, 2.5vw));
+  font-weight: bold;
+}
+
+#grid-button-row {
+  display: flex;
+  width: 100%;
+  height: 6.5%;
+  justify-content: space-between;
+}
+
+#letter-grid-view {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.letter-grid-row {
+  width: 100%;
+  display: flex;
+}
+
+.letter-grid-cell {
+  width: 33%;
+  height: 25%;
+  margin: 5px;
+  font-size: min(48px, max(18px, 3vw));
+  font-weight: bold;
+}
+
+.btn.primary.letter-grid-button {
+  height: 100%;
+  font-size: min(48px, max(18px, 3vw));
+  font-weight: bold;
+}
+
+.btn.primary.letter-grid-button.selected {
+  border: 2px solid dodgerblue;
+  border-radius: 12px;
+}
+
+#grid-letter-order-display {
+  width: 100%;
+  min-height: 4rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.grid-letter-order-slot {
+  font-size: min(48px, max(18px, 3vw));
+  font-weight: bold;
+  text-decoration: underline;
+  line-height: 1.5;
+}
+
+#letter-view-box {
+  height: 500px;
+  font-size: min(48px, max(18px, 3vw));
+  font-weight: bold;
+  background-color: lightgray;
+  border: 3px solid black;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#practice-letter-feedback-container {
+  font-size: min(48px, max(18px, 3vw));
+}

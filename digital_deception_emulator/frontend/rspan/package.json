@@ -1,0 +1,63 @@
+{
+  "name": "oswald-shortened-reading",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "/digital-deception/rspan/",
+  "dependencies": {
+    "@felangel/bloc": "^0.3.0",
+    "@felangel/react-bloc": "^0.3.0",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.2",
+    "@types/mathjs": "^6.0.12",
+    "auto-bind": "^4.0.0",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.5.1",
+    "mathjs": "^9.3.2",
+    "progressbar.js": "^1.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "regenerator-runtime": "^0.13.9",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "webpack --mode production --progress --config webpack.config.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/progressbar.js": "^1.1.2",
+    "@types/react": "^17.0.0",
+    "babel-loader": "8.1.0",
+    "css-loader": "^3.6.0",
+    "ts-loader": "^8.3.0",
+    "typescript": "^3.2.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.9.2"
+  }
+}

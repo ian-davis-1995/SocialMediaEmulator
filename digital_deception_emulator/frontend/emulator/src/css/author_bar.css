@@ -1,0 +1,12 @@
+.author-bar-container {
+    width: 100%;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.author-bar-name {
+    font-weight: bold;
+    margin: auto 0 auto 5px;
+}

@@ -1,0 +1,21 @@
+.story-button-container {
+    margin: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+    text-align: center;
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.story-title {
+    font-size: 28px;
+    font-weight: bold;
+}

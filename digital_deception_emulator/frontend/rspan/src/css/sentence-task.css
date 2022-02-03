@@ -1,0 +1,58 @@
+#sentence-makes-sense-button-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+#sentence-view-container {
+    width: 100%;
+    height: 100%;
+}
+
+#sentence-view-directions {
+    font-size: min(48px, max(18px, 3vw));
+}
+
+#sentence-makes-sense-box {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: lightgray;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 4px solid black;
+}
+
+.btn.primary.sentence-makes-sense-button {
+    padding: .5rem 2rem;
+    background-color: white;
+    border: 4px solid black;
+}
+
+.btn.primary.sentence-makes-sense-button.active {
+    background-color: dodgerblue;
+}
+
+.btn.primary.sentence-makes-sense-button:hover {
+    background-color: dodgerblue;
+}
+
+.sentence-makes-sense-paragraph {
+    font-size: min(48px, max(18px, 3vw));
+    font-weight: bold;
+}
+
+#feedback-container {
+    color: dodgerblue;
+    font-size: min(48px, max(18px, 3vw));
+    font-weight: bold;
+    width: 10ch;
+    min-height: min(52px, max(24px, 3.5vw));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feedback-span {
+    vertical-align: middle;
+    display: inline-block;
+}

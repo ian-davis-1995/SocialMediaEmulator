@@ -1,0 +1,220 @@
+@media(min-width:320px) {
+    .popup-separated-story-container {
+        font-size: small;
+    }
+}
+
+@media(min-width:768px) {
+    .popup-separated-story-container {
+        font-size: medium;
+    }
+}
+
+@media(min-width:1440px) {
+    .popup-separated-story-container {
+        font-size: x-large;
+    }
+}
+
+
+.popup-separated-story-container {
+    width: 35ch;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.popup-story-chunk-container {
+    display: flex;
+    /* min-height: 400px; */
+    width: 100%;
+    padding: 8px;
+}
+
+
+.popup-story-chunk-text {
+    width: calc(100% - 50px);
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.popup-story-chunk-text-animated-enter {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.popup-story-chunk-text-animated-enter-active {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: all 250ms ease-in;
+}
+
+.popup-story-chunk-text-animated-exit {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.popup-story-chunk-text-animated-exit-active {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 250ms ease-in;
+}
+
+.popup-story-chunk-text-animated-exit-done {
+    opacity: 0;
+}
+
+.popup-story-arrow {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    height: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.popup-carousel-control-next-icon:after {
+    color: black;
+}
+
+.popup-comments-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.popup-comments-header {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+.popup-comment-container {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.popup-comment-top-bar {
+    font-size: 14px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup-prior-knowledge-question-text {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.popup-prior-knowledge-answers-container {
+    display: flex;
+    margin-left: 40px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.popup-prior-knowledge-answer-container {
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.popup-prior-knowledge-answer-button {
+    border-radius: 12px;
+    width: 150px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.popup-prior-knowledge-answer-button.active {
+    background-color: rgb(0, 122, 192);
+    color: white;
+}
+
+.popup-prior-knowledge-answer-button:focus {
+    outline: rgb(14, 167, 255) auto 5px;
+}
+
+.popup-prior-knowledge-button-text {
+    font-size: 18px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.popup-story-scroll-indicators {
+    width: 50px;
+    height: 300px;
+    overflow-y: hidden;
+}
+
+.popup-story-scroll-indicator {
+    margin-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    display: block;
+}
+
+.popup-story-scroll-indicator.active {
+    background-color: rgb(0, 122, 192);
+}
+
+.popup-separated-story-title-container {
+    padding: 10px;
+    /* min-height: 400px; */
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.popup-separated-story-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.popup-comment-button-container {
+    width: 175px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.popup-comment-button, .popup-comment-collapse-button {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.popup-comment-collapse-button {
+    margin: 0 auto;
+}
+
+.end-story-container {
+    margin: 0 auto;
+}
+
+.popup-story-help-instructions {
+    color: gray;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.story-continue-button {
+    font-weight: bold;
+    font-size: 30px;
+}

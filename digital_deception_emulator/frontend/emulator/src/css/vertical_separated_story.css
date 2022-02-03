@@ -1,0 +1,237 @@
+.vertical-separated-story-container {
+    width: 100%;
+    /* min-height: 450px; */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.vertical-separated-story-feed-view {
+    height: 400px;
+    width: 100%; 
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.vertical-separated-story-modal-view {
+    overflow-y: hidden;
+    width: 100%;
+    height: 95%;
+}
+
+.vertical-story-chunk-container {
+    display: flex;
+    /* min-height: 400px; */
+    width: 100%;
+    padding: 8px;
+}
+
+.vertical-story-chunk-container {
+    font-size: 24px;
+}
+
+.vertical-story-chunk-text {
+    width: calc(100% - 50px);
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.vertical-story-chunk-text-animated-enter {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.vertical-story-chunk-text-animated-enter-active {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: all 250ms ease-in;
+}
+
+.vertical-story-chunk-text-animated-exit {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.vertical-story-chunk-text-animated-exit-active {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 250ms ease-in;
+}
+
+.vertical-story-chunk-text-animated-exit-done {
+    opacity: 0;
+}
+
+.vertical-story-arrow {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    height: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.vertical-carousel-control-next-icon:after {
+    color: black;
+}
+
+.vertical-comments-container {
+    overflow-y: hidden;
+    min-height: 200px;
+}
+
+@media (max-height: 650px) {
+    .vertical-comments-container {
+        max-height: 150px !important;
+    }
+}
+
+.vertical-comments-header {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+.vertical-comment-container {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.vertical-comment-top-bar {
+    font-size: 14px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vertical-prior-knowledge-question-text {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.vertical-prior-knowledge-answers-container {
+    display: flex;
+    margin-left: 40px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.vertical-prior-knowledge-answer-container {
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.vertical-prior-knowledge-answer-button {
+    border-radius: 12px;
+    width: 150px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.vertical-prior-knowledge-answer-button.active {
+    background-color: rgb(0, 122, 192);
+    color: white;
+}
+
+.vertical-prior-knowledge-answer-button:focus {
+    outline: rgb(14, 167, 255) auto 5px;
+}
+
+.vertical-prior-knowledge-button-text {
+    font-size: 18px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.vertical-story-scroll-indicators {
+    width: 50px;
+    height: 300px;
+    overflow-y: hidden;
+}
+
+.vertical-story-scroll-indicator {
+    margin-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    display: block;
+}
+
+.vertical-story-scroll-indicator.active {
+    background-color: rgb(0, 122, 192);
+}
+
+.vertical-separated-story-title-container {
+    padding: 10px;
+    height:100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.vertical-separated-story-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.vertical-comment-button-container {
+    width: 175px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.vertical-comment-button, .vertical-comment-collapse-button {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+.vertical-comment-collapse-button {
+    margin: 0 auto;
+}
+
+.end-story-container {
+    margin: 0 auto;
+}
+
+.vertical-story-help-instructions {
+    color: gray;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.story-continue-button {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.vertical-separated-story-feed-view:disabled > .vertical-separated-story-title-container{
+    background-color:rgba(0, 0, 0, 0.2);
+    color: rgba(16, 16, 16, 0.3);
+    border-radius: 12px;
+    cursor: default;
+}

@@ -1,0 +1,16 @@
+.navbar {
+    height: 50px;
+}
+
+.vertical-line {
+    border-left: 2px solid darkgray;
+    height: 45px;
+}
+
+.heatmap-details-container {
+    display: flex;
+}
+
+.heatmap-details-piece {
+    margin: auto 5px;
+}

@@ -1,0 +1,21 @@
+.two-similar-pictures-slider {
+    width: 100%;
+    margin: 10px auto;
+}
+
+.two-similar-pictures-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.two-similar-pictures-description {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.two-similar-pictures-canvas {
+    width: 50%;
+    height: auto;
+    max-height: 100%;
+}

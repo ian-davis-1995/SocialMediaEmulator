@@ -1,0 +1,80 @@
+/* Color scheme based loosely on https://coolors.co/464f51-dddddd-858ae3-659157-e05263 */
+
+body {
+    background-color: #464F51 !important;
+    font-size: 20px !important;
+}
+
+.modal-post-container, .modal-dialog-container {
+    background-color: #f5f5f5;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.post-container, #post-data-provider {
+    background-color: #f5f5f5;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.comment-container, .vertical-comment-container {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    border: none;
+}
+
+.button:hover {
+    background-color: #EBEBEB;
+}
+
+.button:disabled {
+    color: #858585;
+    background-color: #dddddd;
+}
+
+.button.chosen {
+    background-color: #74a366;
+    color: #dddddd;
+    border: 1px solid #74a366;
+}
+
+button.nav-link, button.navbar-brand {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+button.nav-link:focus, button.navbar-brand:focus {
+    outline: 0;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.post-reply-container {
+    background-color: #d6d6d6;
+    width: 90%;
+    border-radius: 5px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.red-highlight {
+    color: red;
+}
+
+.tagged-author {
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color:rgba(88, 101, 242, 0.7);
+    color: white;
+    border-radius: 5px;
+    /* cursor: pointer; */
+}
+
+/* .tagged-author:hover {
+    background-color: rgb(88, 101, 242);
+    color: white;
+} */

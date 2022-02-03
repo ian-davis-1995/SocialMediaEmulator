@@ -1,0 +1,28 @@
+.validation-error-dialog {
+    font-size: 24px;
+    min-height: 400px;
+    max-width: 30em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.validation-section-separator {
+    width: 95%;
+    background-color: grey;
+}
+
+.validation-error-title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.validation-done-button {
+    font-weight: bold;
+    font-weight: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
