@@ -1,0 +1,9 @@
+[Unit]
+Description=Digital Deception Web Backend
+
+[Service]
+ExecStart=/usr/bin/python3 /home/iandavis/digital_deception_release/digital_deception_application.py
+WorkingDirectory=/home/iandavis/digital_deception_release/
+
+[Install]
+WantedBy=default.target

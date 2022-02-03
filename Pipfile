@@ -1,0 +1,14 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+cherrypy = "*"
+cherrypy_utils = { path = "../CherrypyUtils/" }
+
+[dev-packages]
+black = "*"
+
+[requires]
+python_version = "3.6.8"
