@@ -1,5 +1,7 @@
+import argparse
 import json
 import os
+import pathlib
 
 import cherrypy
 
@@ -26,19 +28,19 @@ def initialize_db(session):
     ReadingSpanSentence.initialize_sentences(session)
 
 
-def setup_server(subdomain="/", config_location="."):
+def setup_server(subdomain="/", production=False):
     authentication.initialize()
 
-    production_file = os.path.join(config_location, "production_config.ini")
-    development_file = os.path.join(config_location, "development_config.ini")
+    production_file = pathlib.Path(__file__).absolute().joinpath("production_config.ini").resolve()
+    development_file = pathlib.Path(__file__).absolute().joinpath("development_config.ini").resolve()
 
     cherrypy._cpconfig.environments["production"]["log.screen"] = True
 
-    if os.path.exists(production_file):
+    if production and production_file.exists():
         cherrypy.log("Using production configuration")
         cherrypy.config.update(production_file)
         active_file = production_file
-    elif os.path.exists(development_file):
+    elif not production and development_file.exists():
         cherrypy.log("Using development configuration")
         cherrypy.config.update(development_file)
         active_file = development_file
@@ -68,18 +70,17 @@ def setup_server(subdomain="/", config_location="."):
     cherrypy.tree.mount(RSPANTestApi(), url_utils.combine_url(subdomain, "rspan", "api", "result"), active_file)
     cherrypy.tree.mount(RSPANView(), url_utils.combine_url(subdomain, "rspan", "index"), active_file)
 
-    current_directory = os.path.dirname(os.path.realpath(__file__))
-    mysql_file = os.path.join(current_directory, "mysql.credentials")
+    mysql_file = pathlib.Path(__file__).absolute().joinpath("mysql.credentials").resolve()
 
     # mysql connection:
     # mysql+pymysql://<username>:<password>@<host>/<dbname>[?<options>]
-    if os.path.exists(os.path.join(current_directory, "mysql.credentials")):
+    if os.path.exists(pathlib.Path(__file__).absolute().joinpath("mysql.credentials").resolve()):
         with open(mysql_file, "r") as mysql_credentials_file:
             credentials = json.load(mysql_credentials_file)
             connection_string = str("mysql+pymysql://{username}:{password}@{host}/{db_name}").format_map(credentials)
     else:
         cherrypy.log("Using sqlite database file in lieu of mysql credentials!")
-        database_filepath = os.path.join(current_directory, "digital_deception.db")
+        database_filepath = pathlib.Path(__file__).absolute().joinpath("digital_deception.db").resolve()
         connection_string = "sqlite:///" + database_filepath
 
     SQLAlchemyPlugin(
@@ -91,12 +92,13 @@ def setup_server(subdomain="/", config_location="."):
         pool_recycle=20000,
         after_engine_setup=initialize_db,
     )
+
     cherrypy.log("Publishing db create for digital_deception")
     cherrypy.engine.publish("digital_deception.db.create")
 
 
-def run():
-    setup_server()
+def run(production=False):
+    setup_server(production=production)
 
     cherrypy.engine.signals.subscribe()
 
@@ -105,4 +107,7 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    parser = argparse.ArgumentParser("Run the Digital Deception Emulator web server")
+    parser.add_argument("--production", action="store_true", help="Enable production mode")
+    args = parser.parse_args()
+    run(production=args.production)
