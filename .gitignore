@@ -4,3 +4,5 @@ Pipfile.lock
 build/
 dist/
 *.egg-info
+digital_deception.db
+mysql.credentials

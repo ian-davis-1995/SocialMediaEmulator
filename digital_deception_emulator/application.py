@@ -29,10 +29,11 @@ def initialize_db(session):
 
 
 def setup_server(subdomain="/", production=False):
-    authentication.initialize()
+    server_directory = pathlib.Path(__file__).absolute()
+    authentication.initialize(api_key_filepath=server_directory.joinpath("backend", "configuration", "api.key"))
 
-    production_file = pathlib.Path(__file__).absolute().joinpath("production_config.ini").resolve()
-    development_file = pathlib.Path(__file__).absolute().joinpath("development_config.ini").resolve()
+    production_file = server_directory.joinpath("backend", "configuration", "production_config.ini").resolve()
+    development_file = server_directory.joinpath("backend", "configuration", "development_config.ini").resolve()
 
     cherrypy._cpconfig.environments["production"]["log.screen"] = True
 
@@ -70,17 +71,17 @@ def setup_server(subdomain="/", production=False):
     cherrypy.tree.mount(RSPANTestApi(), url_utils.combine_url(subdomain, "rspan", "api", "result"), active_file)
     cherrypy.tree.mount(RSPANView(), url_utils.combine_url(subdomain, "rspan", "index"), active_file)
 
-    mysql_file = pathlib.Path(__file__).absolute().joinpath("mysql.credentials").resolve()
+    mysql_file = server_directory.joinpath("mysql.credentials").resolve()
 
     # mysql connection:
     # mysql+pymysql://<username>:<password>@<host>/<dbname>[?<options>]
-    if os.path.exists(pathlib.Path(__file__).absolute().joinpath("mysql.credentials").resolve()):
+    if os.path.exists(mysql_file):
         with open(mysql_file, "r") as mysql_credentials_file:
             credentials = json.load(mysql_credentials_file)
             connection_string = str("mysql+pymysql://{username}:{password}@{host}/{db_name}").format_map(credentials)
     else:
         cherrypy.log("Using sqlite database file in lieu of mysql credentials!")
-        database_filepath = pathlib.Path(__file__).absolute().joinpath("digital_deception.db").resolve()
+        database_filepath = server_directory.joinpath("digital_deception.db").resolve()
         connection_string = "sqlite:///" + database_filepath
 
     SQLAlchemyPlugin(
