@@ -20,7 +20,7 @@ install_and_build(frontend.joinpath("rspan"))
 setup(
     name="digital_deception_emulator",
     packages=find_packages(),
-    version="0.7.18",
+    version="0.9.0",
     description="Cherrypy web server plugin for the digital deception emulator backend",
     author="Me",
     license="MIT",
