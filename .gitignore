@@ -7,3 +7,4 @@ dist/
 digital_deception.db
 mysql.credentials
 node_modules/
+__pycache__
