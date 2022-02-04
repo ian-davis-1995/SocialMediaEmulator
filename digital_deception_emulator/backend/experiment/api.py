@@ -1,12 +1,15 @@
 import cherrypy
 
-from digital_deception_emulator.backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
+from digital_deception_emulator.backend.experiment.models import (
+    ExperimentEventRecord,
+    ExperimentTestRecord,
+)
 from cherrypy_utils import json_utils
 
 
 # noinspection PyPep8Naming, PyMethodMayBeStatic
 @cherrypy.expose
-class ExperimentEventApi(object):
+class ExperimentEventApi:
     def GET(self, test_id=None, event_type=None):
         if not test_id:
             raise cherrypy.HTTPError(status=400, message="No test id provided!")
@@ -42,7 +45,7 @@ class ExperimentEventApi(object):
 @cherrypy.expose
 @cherrypy.tools.json_in()
 @cherrypy.tools.json_out()
-class ExperimentTestApi(object):
+class ExperimentTestApi:
     results_per_page = 25
 
     def GET(self, subject_id=None, page=0):

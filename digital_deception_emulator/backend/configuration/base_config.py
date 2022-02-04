@@ -11,7 +11,9 @@ def get_config():
             "request.dispatch": cherrypy.dispatch.MethodDispatcher(),
             "tools.sessions.on": True,
             "request.show_tracebacks": True,
-            "tools.staticdir.root": pathlib.Path(__file__).parent.parent.parent.joinpath("frontend").resolve(),
+            "tools.staticdir.root": pathlib.Path(__file__)
+            .parent.parent.parent.joinpath("frontend")
+            .resolve(),
         },
         "/api": {
             "tools.response_headers.on": True,

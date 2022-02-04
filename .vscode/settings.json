@@ -1,0 +1,17 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/build": true,
+    "**/digital_deception_emulator.egg-info": true,
+    "Pipfile.lock": true,
+    "**/__pycache__": true,
+    "**/dist": true
+  },
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true
+}

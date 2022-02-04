@@ -6,3 +6,4 @@ dist/
 *.egg-info
 digital_deception.db
 mysql.credentials
+node_modules/

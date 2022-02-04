@@ -7,10 +7,18 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
 from digital_deception_emulator.backend.database import Base
-from digital_deception_emulator.backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
+from digital_deception_emulator.backend.experiment.models import (
+    ExperimentEventRecord,
+    ExperimentTestRecord,
+)
 
 
-def export_csv(output_file, experiment_test_records, get_experiment_event_records, include_mouse_events=False):
+def export_csv(
+    output_file,
+    experiment_test_records,
+    get_experiment_event_records,
+    include_mouse_events=False,
+):
     header = [
         "Test ID",
         "Event ID",
@@ -107,7 +115,9 @@ def export_csv(output_file, experiment_test_records, get_experiment_event_record
 
     for experiment_test_record in experiment_test_records:
         write_test_description(writer, experiment_test_record)
-        experiment_event_records = get_experiment_event_records(experiment_test_record, include_mouse_events)
+        experiment_event_records = get_experiment_event_records(
+            experiment_test_record, include_mouse_events
+        )
 
         for experiment_event_record in experiment_event_records:
             write_rows(writer, experiment_test_record, experiment_event_record)
@@ -115,7 +125,9 @@ def export_csv(output_file, experiment_test_records, get_experiment_event_record
 
 def export_session_csv(output_file, session, subject_ids, include_mouse_events=False):
     experiment_test_records = (
-        session.query(ExperimentTestRecord).filter(ExperimentTestRecord.subject_id.in_(subject_ids)).all()
+        session.query(ExperimentTestRecord)
+        .filter(ExperimentTestRecord.subject_id.in_(subject_ids))
+        .all()
     )
     export_csv(
         output_file,
@@ -129,7 +141,9 @@ def export_session_csv(output_file, session, subject_ids, include_mouse_events=F
     )
 
 
-def export_database_csv(output_file, database_type, db_hostname_filename, subject_ids, **kwargs):
+def export_database_csv(
+    output_file, database_type, db_hostname_filename, subject_ids, **kwargs
+):
     db_user = kwargs.pop("db_user", "")
     db_pass = kwargs.pop("db_pass", "")
     db_name = kwargs.pop("db_name", "")
@@ -138,7 +152,9 @@ def export_database_csv(output_file, database_type, db_hostname_filename, subjec
     connection_string = ""
 
     if database_type == "sqlite":
-        connection_string = "sqlite:///{db_hostname_filename}".format(db_hostname_filename=db_hostname_filename)
+        connection_string = "sqlite:///{db_hostname_filename}".format(
+            db_hostname_filename=db_hostname_filename
+        )
     else:
         connection_string = "{database_type}://{db_user}:{db_pass}@{db_hostname_filename}/{db_name}".format(
             database_type=database_type,
@@ -151,7 +167,9 @@ def export_database_csv(output_file, database_type, db_hostname_filename, subjec
     engine = create_engine(connection_string)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    export_session_csv(output_file, session, subject_ids, include_mouse_events=include_mouse_events)
+    export_session_csv(
+        output_file, session, subject_ids, include_mouse_events=include_mouse_events
+    )
 
 
 def export_experiment_summary(
@@ -167,8 +185,12 @@ def export_experiment_summary(
     data = []
 
     for experiment_test_record in experiment_test_records:
-        experiment_event_records = get_experiment_event_records(experiment_test_record, include_mouse_events)
-        summary = export_experiment_test_summary(experiment_test_record, experiment_event_records)
+        experiment_event_records = get_experiment_event_records(
+            experiment_test_record, include_mouse_events
+        )
+        summary = export_experiment_test_summary(
+            experiment_test_record, experiment_event_records
+        )
         this_header = list(summary.keys())
 
         if len(current_header) < len(this_header):
@@ -182,9 +204,13 @@ def export_experiment_summary(
         writer.writerow(row)
 
 
-def export_session_summary(output_file, session, subject_ids, include_mouse_events=False):
+def export_session_summary(
+    output_file, session, subject_ids, include_mouse_events=False
+):
     experiment_test_records = (
-        session.query(ExperimentTestRecord).filter(ExperimentTestRecord.subject_id.in_(subject_ids)).all()
+        session.query(ExperimentTestRecord)
+        .filter(ExperimentTestRecord.subject_id.in_(subject_ids))
+        .all()
     )
     export_experiment_summary(
         output_file,
@@ -198,7 +224,9 @@ def export_session_summary(output_file, session, subject_ids, include_mouse_even
     )
 
 
-def export_database_summary(output_file, database_type, db_hostname_filename, subject_ids, **kwargs):
+def export_database_summary(
+    output_file, database_type, db_hostname_filename, subject_ids, **kwargs
+):
     db_user = kwargs.pop("db_user", "")
     db_pass = kwargs.pop("db_pass", "")
     db_name = kwargs.pop("db_name", "")
@@ -207,7 +235,9 @@ def export_database_summary(output_file, database_type, db_hostname_filename, su
     connection_string = ""
 
     if database_type == "sqlite":
-        connection_string = "sqlite:///{db_hostname_filename}".format(db_hostname_filename=db_hostname_filename)
+        connection_string = "sqlite:///{db_hostname_filename}".format(
+            db_hostname_filename=db_hostname_filename
+        )
     else:
         connection_string = "{database_type}://{db_user}:{db_pass}@{db_hostname_filename}/{db_name}".format(
             database_type=database_type,
@@ -220,7 +250,9 @@ def export_database_summary(output_file, database_type, db_hostname_filename, su
     engine = create_engine(connection_string)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    export_session_summary(output_file, session, subject_ids, include_mouse_events=include_mouse_events)
+    export_session_summary(
+        output_file, session, subject_ids, include_mouse_events=include_mouse_events
+    )
 
 
 def summarize_experiment_test(experiment_test, experiment_event_records):
@@ -282,7 +314,9 @@ def summarize_experiment_test(experiment_test, experiment_event_records):
 
 
 def export_experiment_test_summary(experiment_test, experiment_event_records):
-    experiment_summary = summarize_experiment_test(experiment_test, experiment_event_records)
+    experiment_summary = summarize_experiment_test(
+        experiment_test, experiment_event_records
+    )
 
     experiment_output = {
         "test_id": experiment_test.id,
@@ -306,8 +340,12 @@ def export_experiment_test_summary(experiment_test, experiment_event_records):
     return experiment_output
 
 
-def query_experiment_events(session, experiment_test_record, include_mouse_events=False):
-    statement = session.query(ExperimentEventRecord).filter(ExperimentEventRecord.test_id == experiment_test_record.id)
+def query_experiment_events(
+    session, experiment_test_record, include_mouse_events=False
+):
+    statement = session.query(ExperimentEventRecord).filter(
+        ExperimentEventRecord.test_id == experiment_test_record.id
+    )
 
     if not include_mouse_events:
         statement = (
@@ -336,7 +374,10 @@ def parse_post_data(test_record):
         if post_id.startswith("distractor-task"):
             data["distractor_question"] = post.get("question", "???")
             data["distractor_image"] = post.get("image", "???")
-            answers = [str(answer.get("text", "???")) for answer in post.get("answers", [{"text": "???"}])]
+            answers = [
+                str(answer.get("text", "???"))
+                for answer in post.get("answers", [{"text": "???"}])
+            ]
             data["distractor_answers"] = ", ".join(answers)
         else:
             data["story_id"] = post.get("id", "???")
@@ -396,15 +437,25 @@ def write_rows(writer, test_record, event_record):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser("Script to facilitate pulling the database data from the server")
+    parser = argparse.ArgumentParser(
+        "Script to facilitate pulling the database data from the server"
+    )
     parser.add_argument("output_file", help="The file to output exported data to")
-    parser.add_argument("summary_output_file", help="The file to output the summary data to")
+    parser.add_argument(
+        "summary_output_file", help="The file to output the summary data to"
+    )
     parser.add_argument(
         "database_type",
         help="The SQLAlchemy database type (sqlite, mysql, etc) -- used to connect to the database for data pull -- also should include the driver name if necessary (e.g. pymysql)",
     )
-    parser.add_argument("database_hostname", help="The database hostname to connect to (or a filename if using SQLite)")
-    parser.add_argument("subject_ids", help="A list of subject ids to export data for, separated by comma")
+    parser.add_argument(
+        "database_hostname",
+        help="The database hostname to connect to (or a filename if using SQLite)",
+    )
+    parser.add_argument(
+        "subject_ids",
+        help="A list of subject ids to export data for, separated by comma",
+    )
     parser.add_argument(
         "--include_mouse_events",
         help="Flag to include mouse movement data in the export",
@@ -412,12 +463,20 @@ if __name__ == "__main__":
         action="store_true",
     )
     parser.add_argument(
-        "--database_username", help="The username to use when connecting to the database server", default=""
+        "--database_username",
+        help="The username to use when connecting to the database server",
+        default="",
     )
     parser.add_argument(
-        "--database_password", help="The password to use when connecting to the database server", default=""
+        "--database_password",
+        help="The password to use when connecting to the database server",
+        default="",
     )
-    parser.add_argument("--database_name", help="The database name to connect to on the server", default="")
+    parser.add_argument(
+        "--database_name",
+        help="The database name to connect to on the server",
+        default="",
+    )
     args = parser.parse_args()
     csv_file = open(args.output_file, "w", newline="")
     summary_file = open(args.summary_output_file, "w", newline="")

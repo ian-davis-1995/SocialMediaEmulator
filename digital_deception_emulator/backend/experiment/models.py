@@ -11,7 +11,9 @@ class ExperimentTestRecord(Base, BaseEventRecord):
     __tablename__ = "ExperimentTests"
 
     timestamp = Column(
-        DATETIME(timezone=True), nullable=False, server_default=timestamp_utils.default_timestamp().isoformat()
+        DATETIME(timezone=True),
+        nullable=False,
+        server_default=timestamp_utils.default_timestamp().isoformat(),
     )
     subject_id = Column(String(512), nullable=False)
     emulator_version = Column(String(512), server_default="1.0.0", nullable=False)
@@ -29,7 +31,7 @@ class ExperimentTestRecord(Base, BaseEventRecord):
         del data["posts"]
         return data
 
-    def _to_dict(self, events=None, include_posts=True):
+    def _to_dict(self, events=None, include_posts=True, *args, **kwargs):
         if include_posts:
             data = {
                 "timestamp": self.timestamp.isoformat(),
@@ -63,7 +65,9 @@ class ExperimentEventRecord(Base, BaseEventRecord):
     __tablename__ = "ExperimentEvents"
 
     timestamp = Column(
-        DATETIME(timezone=True), nullable=False, server_default=timestamp_utils.default_timestamp().isoformat()
+        DATETIME(timezone=True),
+        nullable=False,
+        server_default=timestamp_utils.default_timestamp().isoformat(),
     )
     test_id = Column(Integer, nullable=False)
     event_type = Column(String(512), nullable=False)

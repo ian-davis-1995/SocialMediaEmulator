@@ -3,10 +3,13 @@ import cherrypy
 import io
 import zipfile
 
-from digital_deception_emulator.backend import domain
+from cherrypy_utils import domain
 from cherrypy_utils.login import models
-from digital_deception_emulator.backend.export.export_emulator_data import export_session_csv, export_session_summary
-from digital_deception_emulator.backend.experiment.models import ExperimentEventRecord, ExperimentTestRecord
+
+from digital_deception_emulator.backend.export.export_emulator_data import (
+    export_session_csv,
+    export_session_summary,
+)
 
 from cherrypy.lib import static
 from cherrypy_utils import url_utils
@@ -14,7 +17,7 @@ from cherrypy_utils import url_utils
 
 # noinspection PyPep8Naming, PyMethodMayBeStatic
 @cherrypy.expose
-class ExperimentExportApi(object):
+class ExperimentExportApi:
     def GET(self, subject_ids=None, mouse_events="False"):
         if not models.ldap_user_authenticated():
             raise cherrypy.HTTPRedirect(url_utils.combine_url(domain.get_domain(), "login"))
@@ -61,7 +64,8 @@ class ExperimentExportApi(object):
 
     def get_archive_filename(self, subject_ids):
         return "dd_export_{0}_{1}.zip".format(
-            "-".join(subject_ids[:4]), datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+            "-".join(subject_ids[:4]),
+            datetime.datetime.now().strftime("%Y-%m-%d_%H-%M"),
         )
 
     def serve_static(self, filename, data: io.BytesIO):
