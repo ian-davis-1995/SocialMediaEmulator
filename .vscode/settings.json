@@ -7,11 +7,13 @@
     "**/.DS_Store": true,
     "**/Thumbs.db": true,
     "**/build": true,
-    "**/digital_deception_emulator.egg-info": true,
+    "**/*.egg-info": true,
     "Pipfile.lock": true,
     "**/__pycache__": true,
-    "**/dist": true
+    "**/dist": true,
+    "**/node_modules": true
   },
   "python.linting.pylintEnabled": true,
-  "python.linting.enabled": true
+  "python.linting.enabled": true,
+  "python.defaultInterpreterPath": "/Users/iandavis/.local/share/virtualenvs/DigitalDeceptionEmulator-iL1FRk0b-python"
 }

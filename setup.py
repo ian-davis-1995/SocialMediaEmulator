@@ -2,25 +2,33 @@ import subprocess
 import pathlib
 
 from setuptools import find_packages, setup
+from setuptools.command.install import install
 
 frontend = pathlib.Path("digital_deception_emulator", "frontend")
 
 
-def install_and_build(path):
-    subprocess.run(["npm", "install"], cwd=path)
-    subprocess.run(["npm", "run-script", "build"], cwd=path)
+class NPMInstall(install):
+    def run(self):
+        subprocess.run(["npm", "install"], cwd=frontend.resolve())
+        subprocess.run(["npm", "run-script", "build"], cwd=frontend.resolve())
+        install.run(self)
 
 
-print("Building ReactJS Frontend for Social Media Emulator...")
-install_and_build(frontend.joinpath("emulator"))
+class PostInstallCommand(install):
+    def run(self):
+        print("Building ReactJS Frontend...")
+        self.run_command("npm_install")
+        install.run(self)
 
-print("Building ReactJS Frontend for RSPAN Task")
-install_and_build(frontend.joinpath("rspan"))
 
 setup(
+    cmdclass={
+        "install": PostInstallCommand,
+        "npm_install": NPMInstall,
+    },
     name="digital_deception_emulator",
     packages=find_packages(),
-    version="0.9.1",
+    version="0.9.2",
     description="Cherrypy web server plugin for the digital deception emulator backend",
     author="Me",
     license="MIT",
