@@ -34,7 +34,7 @@ from digital_deception_emulator.backend.configuration import (
 )
 
 
-def setup_server(subdomain="/", production=False):
+def setup_server(subdomain="/digital-deception", production=False):
     server_directory = pathlib.Path(__file__).parent.absolute()
     cherrypy.log("looking for digital deception assets at {0}".format(server_directory))
     template_location = server_directory.joinpath("frontend", "templates").resolve()

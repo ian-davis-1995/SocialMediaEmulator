@@ -11,7 +11,9 @@ import {
 import { HeatmapRecord } from "./experiment_playback";
 
 const API_KEY = "9463d2d2-8560-40ea-8f4e-739ac9afed2c";
-const BASE_URL = "/digital-deception";
+const BASE_URL = window.subdomain;
+
+console.debug("Setting up network module with subdomain: " + BASE_URL);
 
 class JSONAPIDriver {
     put(request_url, data) {
