@@ -1,14 +1,10 @@
 import argparse
-from itertools import product
 import json
 import os
 import pathlib
 
 import cherrypy
 
-
-# noinspection PyUnresolvedReferences
-from cherrypy_utils import authentication
 from cherrypy_utils import url_utils
 from cherrypy_utils.cherrypy_sqlalchemy_utils import SQLAlchemyTool, SQLAlchemyPlugin
 
@@ -34,16 +30,22 @@ from digital_deception_emulator.backend.configuration import (
 )
 
 
-def setup_server(subdomain="/digital-deception", production=False):
+def setup_server(subdomain="/", shared_data_location=None, production=True):
     server_directory = pathlib.Path(__file__).parent.absolute()
     cherrypy.log("looking for digital deception assets at {0}".format(server_directory))
     template_location = server_directory.joinpath("frontend", "templates").resolve()
-    api_key_filepath = server_directory.joinpath("backend", "configuration", "api.key")
+    api_key_filepath = server_directory.joinpath("backend", "configuration", "api.key").resolve()
+
+    if not shared_data_location:
+        shared_data_location = server_directory
 
     application_data.initialize(
         subdomain=subdomain,
+        application_location=server_directory,
+        shared_data_location=server_directory,
         template_location=template_location,
         api_key_filepath=api_key_filepath,
+        production=production,
     )
 
     cherrypy._cpconfig.environments["production"]["log.screen"] = True
@@ -51,7 +53,7 @@ def setup_server(subdomain="/digital-deception", production=False):
     if production:
         cherrypy.log("Using production configuration")
         active_file = production_config.get_config()
-    elif not production:
+    else:
         cherrypy.log("Using development configuration")
         active_file = development_config.get_config()
 
@@ -72,7 +74,7 @@ def setup_server(subdomain="/digital-deception", production=False):
     cherrypy.tree.mount(ExperimentEventApi(), url_utils.combine_url(subdomain, "api", "event"), active_file)
     cherrypy.tree.mount(ExperimentExportApi(), url_utils.combine_url(subdomain, "api", "export"), active_file)
 
-    mysql_filepath = str(server_directory.joinpath("mysql.credentials").resolve())
+    mysql_filepath = str(server_directory.joinpath("backend", "configuration", "mysql.credentials").resolve())
 
     # mysql connection:
     # mysql+pymysql://<username>:<password>@<host>/<dbname>[?<options>]
