@@ -9,6 +9,8 @@ from cherrypy_utils import json_utils
 
 # noinspection PyPep8Naming, PyMethodMayBeStatic
 @cherrypy.expose
+@cherrypy.tools.json_in()
+@cherrypy.tools.json_out()
 class ExperimentEventApi:
     def GET(self, test_id=None, event_type=None):
         if not test_id:
