@@ -9,6 +9,7 @@ cherrypy_utils = { git = "git+ssh://gitea@git.mindmodeling.org/ian.davis/Cherryp
 oswald_reading_span = { git = "git+ssh://gitea@git.mindmodeling.org/ian.davis/OswaldReadingSpan.git" }
 jinja2 = "*"
 sqlalchemy = "*"
+pymysql = "*"
 
 [dev-packages]
 black = "*"
