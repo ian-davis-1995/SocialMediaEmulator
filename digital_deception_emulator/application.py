@@ -39,6 +39,12 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
     if not shared_data_location:
         shared_data_location = server_directory
 
+    cherrypy.log("=" * 100)
+    cherrypy.log("DIGITAL DECEPTION EMULATOR INIT SECTION")
+    cherrypy.log("-" * 100)
+    cherrypy.log("server_root found at {0}".format(server_directory))
+    cherrypy.log("using shared data root {0}".format(shared_data_location))
+
     application_data.initialize(
         subdomain=subdomain,
         application_location=server_directory,
@@ -102,6 +108,9 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
 
     cherrypy.log("Publishing db create for digital_deception")
     cherrypy.engine.publish("digital_deception.db.create")
+
+    cherrypy.log("END DIGITAL DECEPTION EMULATOR INIT")
+    cherrypy.log("=" * 100)
 
 
 def run(production=False):
