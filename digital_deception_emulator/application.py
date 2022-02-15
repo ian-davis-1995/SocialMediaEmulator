@@ -84,7 +84,7 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
             connection_string = str("mysql+pymysql://{username}:{password}@{host}/{db_name}").format_map(credentials)
     else:
         cherrypy.log("Using sqlite database file in lieu of mysql credentials!")
-        database_filepath = str(server_directory.joinpath("digital_deception.db").resolve())
+        database_filepath = str(shared_data_location.joinpath("digital_deception.db").resolve())
         connection_string = "sqlite:///" + database_filepath
 
     SQLAlchemyPlugin(
