@@ -4,7 +4,7 @@ from cherrypy_utils import application_data
 APP_NAME = "digital_deception_emulator"
 
 
-def get_app():
+def get_app() -> application_data.ApplicationData:
     return application_data.get_app(APP_NAME)
 
 

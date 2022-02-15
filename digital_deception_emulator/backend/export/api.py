@@ -3,9 +3,7 @@ import cherrypy
 import io
 import zipfile
 
-from cherrypy_utils import domain
-from cherrypy_utils.login import models
-
+from digital_deception_emulator.backend.configuration import application_data
 from digital_deception_emulator.backend.export.export_emulator_data import (
     export_session_csv,
     export_session_summary,
@@ -19,11 +17,20 @@ from cherrypy_utils import url_utils
 @cherrypy.expose
 class ExperimentExportApi:
     def GET(self, subject_ids=None, mouse_events="False"):
-        if not models.ldap_user_authenticated():
-            raise cherrypy.HTTPRedirect(url_utils.combine_url(domain.get_domain(), "login"))
-
         if not subject_ids:
             raise cherrypy.HTTPError(status=400, message="No subject id(s) provided!")
+
+        app = application_data.get_app()
+
+        if not app.user_is_authenticated():
+            app.set_login_redirect(
+                "api",
+                "export?subject_ids={0}&mouse_events={1}".format(
+                    ",".join(subject_ids),
+                    mouse_events,
+                ),
+            )
+            raise cherrypy.HTTPRedirect(url_utils.combine_url(app.subdomain, "login"))
 
         include_mouse_events = mouse_events.lower() == "true"
 
