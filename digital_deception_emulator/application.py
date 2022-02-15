@@ -100,9 +100,14 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
         pool_recycle=20000,
     )
 
+    rspan_data_location = pathlib.Path(shared_data_location, "rspan")
+
+    if not rspan_data_location.exists():
+        rspan_data_location.mkdir()
+
     rspan_domain = url_utils.combine_url(subdomain, "rspan")
     cherrypy.log("setting up rspan application at {0}".format(rspan_domain))
-    setup_reading_span(subdomain=rspan_domain, production=production)
+    setup_reading_span(subdomain=rspan_domain, shared_data_location=rspan_data_location, production=production)
 
     cherrypy.log("Publishing db create for digital_deception")
     cherrypy.engine.publish("digital_deception.db.create")
