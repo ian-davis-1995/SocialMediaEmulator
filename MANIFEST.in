@@ -4,3 +4,4 @@ recursive-include digital_deception_emulator/frontend/ospan/dist *
 recursive-include digital_deception_emulator/frontend/rspan/dist *
 recursive-include digital_deception_emulator/frontend/templates *
 include digital_deception_emulator/backend/configuration/api.key
+include digital_deception_emulator/backend/configuration/mysql.credentials

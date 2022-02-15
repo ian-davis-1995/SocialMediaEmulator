@@ -1,11 +1,8 @@
-/mysql_old.credentials
 /config
 /id_rsa
 *.DS_Store
 __pycache__
 rsa_key_*
-/development_config.ini
-/production_config.ini
 /venv/
 /.idea/workspace.xml
 project_settings.xml
@@ -13,6 +10,3 @@ R_User_Library.xml
 profiles_settings.xml
 test.db-journal
 uploaded_exports/
-mysql.credentials
-digital-deception.db
-digital_deception.db
