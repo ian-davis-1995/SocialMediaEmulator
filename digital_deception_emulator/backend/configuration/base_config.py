@@ -28,11 +28,6 @@ def get_config():
             "tools.staticdir.on": True,
             "tools.staticdir.dir": pathlib.Path("emulator").joinpath("dist"),
         },
-        "/ospan/static": {
-            "tools.staticdir.on": True,
-            "tools.staticdir.dir": pathlib.Path("ospan").joinpath("dist"),
-            "tools.staticdir.index": "operation_span_web_english.html",
-        },
         "/api/test": {
             "tools.require_api_key.on": True,
             "tools.json_in.on": True,
