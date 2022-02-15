@@ -4,7 +4,7 @@ import pathlib
 from setuptools import find_packages, setup
 from setuptools.command.install import install
 
-frontend = pathlib.Path("digital_deception_emulator", "frontend")
+frontend = pathlib.Path("digital_deception_emulator", "frontend", "emulator")
 
 
 class NPMInstall(install):
@@ -28,7 +28,7 @@ setup(
     },
     name="digital_deception_emulator",
     packages=find_packages(),
-    version="1.0.10",
+    version="1.0.11",
     description="Cherrypy web server plugin for the digital deception emulator backend",
     author="Me",
     license="MIT",
