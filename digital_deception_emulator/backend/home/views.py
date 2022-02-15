@@ -10,7 +10,7 @@ from digital_deception_emulator.backend.experiment.models import ExperimentEvent
 # noinspection PyPep8Naming, PyMethodMayBeStatic
 @cherrypy.expose
 class HomeView:
-    def GET(self, test_id):
+    def GET(self, test_id, debug="false"):
         if not test_id:
             test_id = 0
 
@@ -23,6 +23,7 @@ class HomeView:
                 showHeatmap="false",
                 testId=test_id,
                 heatmapData=[],
+                debug=debug,
             )
         )
 

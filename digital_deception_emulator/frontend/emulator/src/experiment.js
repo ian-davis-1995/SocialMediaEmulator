@@ -24,6 +24,7 @@ console.debug("[STARTUP][experiment.js] - window.testId = " + window.testId);
 // window.debugTutorialMode = true;
 window.minScrollDelay = 1250;
 
+let debug = window.debug;
 let practiceMode = window.practiceMode !== undefined && window.practiceMode === true;
 let showHeatmap = window.showHeatmap !== undefined && window.showHeatmap !== null && window.showHeatmap === true;
 let testId = window.testId;
@@ -98,7 +99,7 @@ class PilotExperiment extends React.Component {
     componentDidMount() {
         window.addEventListener("message", this.onEmulatorInfoReceived);
 
-        if (process.env.NODE_ENV !== "production") {
+        if ((process.env.NODE_ENV !== "production") || debug) {
             console.debug("[STARTUP][experiment.js] - Emulating qualtrics message post with emulator info");
             let storyIds = [
                 "goody-garlick",
