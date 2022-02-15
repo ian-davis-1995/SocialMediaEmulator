@@ -1,8 +1,6 @@
 import argparse
 import json
-import os
 import pathlib
-
 import cherrypy
 
 from cherrypy_utils import url_utils
@@ -80,16 +78,16 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
     cherrypy.tree.mount(ExperimentEventApi(), url_utils.combine_url(subdomain, "api", "event"), active_file)
     cherrypy.tree.mount(ExperimentExportApi(), url_utils.combine_url(subdomain, "api", "export"), active_file)
 
-    mysql_filepath = str(server_directory.joinpath("backend", "configuration", "mysql.credentials").resolve())
+    mysql_filepath = str(pathlib.Path(server_directory, "backend", "configuration", "mysql.credentials").resolve())
 
     # mysql connection:
     # mysql+pymysql://<username>:<password>@<host>/<dbname>[?<options>]
-    if os.path.exists(mysql_filepath):
+    if production and mysql_filepath.exists():
         with open(mysql_filepath, "r") as mysql_credentials_file:
             credentials = json.load(mysql_credentials_file)
             connection_string = str("mysql+pymysql://{username}:{password}@{host}/{db_name}").format_map(credentials)
     else:
-        cherrypy.log("Using sqlite database file in lieu of mysql credentials!")
+        cherrypy.log("Using sqlite database file as we aren't in production or mysql credentials doesn't exist!")
         database_filepath = str(pathlib.Path(shared_data_location, "digital_deception.db").resolve())
         connection_string = "sqlite:///" + database_filepath
 
