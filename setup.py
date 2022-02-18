@@ -9,8 +9,10 @@ frontend = pathlib.Path("digital_deception_emulator", "frontend", "emulator")
 
 class NPMInstall(install):
     def run(self):
-        subprocess.run(["npm", "install"], cwd=frontend.resolve(), capture_output=True)
-        subprocess.run(["npm", "run-script", "build"], cwd=frontend.resolve(), capture_output=True)
+        subprocess.run(["npm", "install"], cwd=frontend.resolve(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run(
+            ["npm", "run-script", "build"], cwd=frontend.resolve(), stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        )
         install.run(self)
 
 
@@ -28,7 +30,7 @@ setup(
     },
     name="digital_deception_emulator",
     packages=find_packages(),
-    version="1.0.18",
+    version="1.0.19",
     description="Cherrypy web server plugin for the digital deception emulator backend",
     author="Me",
     license="MIT",
