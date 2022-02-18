@@ -78,7 +78,7 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
     cherrypy.tree.mount(ExperimentEventApi(), url_utils.combine_url(subdomain, "api", "event"), active_file)
     cherrypy.tree.mount(ExperimentExportApi(), url_utils.combine_url(subdomain, "api", "export"), active_file)
 
-    mysql_filepath = str(pathlib.Path(server_directory, "backend", "configuration", "mysql.credentials").resolve())
+    mysql_filepath = pathlib.Path(server_directory, "backend", "configuration", "mysql.credentials").resolve()
 
     # mysql connection:
     # mysql+pymysql://<username>:<password>@<host>/<dbname>[?<options>]
