@@ -116,8 +116,8 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
     cherrypy.log("=" * 100)
 
 
-def run(production=False):
-    setup_server(production=production)
+def run(subdomain="/digital-deception", production=False):
+    setup_server(subdomain=subdomain, production=production)
 
     cherrypy.engine.signals.subscribe()
 
@@ -127,6 +127,7 @@ def run(production=False):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Run the Digital Deception Emulator web server")
+    parser.add_argument("--subdomain", default="/digital-deception", help="The sub domain to mount the app at")
     parser.add_argument("--production", action="store_true", help="Enable production mode")
     args = parser.parse_args()
-    run(production=args.production)
+    run(subdomain=args.subdomain, production=args.production)

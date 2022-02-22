@@ -30,7 +30,7 @@ setup(
     },
     name="digital_deception_emulator",
     packages=find_packages(),
-    version="1.0.19",
+    version="1.0.20",
     description="Cherrypy web server plugin for the digital deception emulator backend",
     author="Me",
     license="MIT",

@@ -31,7 +31,7 @@ class HomeView:
 # noinspection PyPep8Naming, PyMethodMayBeStatic
 @cherrypy.expose
 class PracticeView:
-    def GET(self, test_id):
+    def GET(self, test_id, debug="false"):
         if not test_id:
             test_id = 0
 
@@ -41,6 +41,7 @@ class PracticeView:
             .render(
                 domain=application_data.get_app().template_domain(),
                 practiceMode="true",
+                debug=debug,
                 showHeatmap="false",
                 testId=test_id,
                 heatmapData=[],
