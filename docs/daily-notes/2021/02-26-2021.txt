@@ -1,0 +1,12 @@
+02-23-2021
+- Added in image-chooser gallery for distractor task option which shows n number of images at i number of images per row in a gallery style, and allows them to select one of the images.
+- Adding in way to create an "advertisement style" post which doesn't show the replies or bottom bar and shows sponsored at the top.
+- Adding in single-image-view for distractor task option, i.e. how many tiger heads can you find?
+
+TODO: Implement the remaining distractors in the emulator.
+TODO: Create a demonstration of both the current story view and a broken up/chunked story view in several different posts.
+TODO: Read the original paper for the oswald shortened reading span paper.
+TODO: Create redundancies for the MM server and a way for other's to be able to go on and at least try and restart the service and what not.
+TODO: Get updated screenshots of the emulator now that everything has been updated
+TODO: Get basic fatigue screenshots of the fatigue app.
+TODO: Move the oswald reading span implementation to it's own folder so it will stop crying about build tree issues.

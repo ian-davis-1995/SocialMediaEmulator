@@ -1,0 +1,16 @@
+06-08-2021
+- Removing comments from the feed data for the time being.
+
+06-09-2021
+- Fixing issues with the padding of the stories when scrolling at the top and bottom.
+- Fixed incorrect averaging of reading times when calculating max reading time.
+
+TODO: Fix the dates on the top bars of the posts being incorrect because of the order randomization.
+
+COMPUTED READING TIMES: 2316,2437,1553,1386,1379,2249,1834,1577,1809,1453,1788,2193,1520,1565,1513
+CALCULATED AVERAGE READING TIME = 1771.467
+CALCULATED STANDARD DEVIATION (s) = 359.863
+CALCULATED MAX READING TIME = 1771.467 + (359.863 * 2.5) = 2671.125
+COMPUTED AVERAGE READING TIME = 1771.467
+COMPUTED STANDARD DEVIATION (s) = 359.86324121942823
+COMPUTED MAX READING TIME = 2671.1247697152376

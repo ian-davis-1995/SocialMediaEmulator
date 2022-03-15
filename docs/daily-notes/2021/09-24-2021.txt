@@ -1,0 +1,20 @@
+09-21-2021
+- Integrated the emulator back into the new qualtrics survey with changes.
+- Making the posts_ column not a fixed length string to prevent errors when the posts dump is too long.
+- Fixing the practice post data still having beth's name.
+- Removing full names from all the profile picture images.
+
+09-22-2021
+- Adding docker build file to automate building docker container.
+- Making the experiment finished dialog show "social media practice phase" or "social media main phase" respectively.
+- Replacing the vintage postcard distractor task image with the properly labeled one and adjusting the response options to "Image A, Image B, ..."
+
+09-23-2021
+- Adding script to create a backup of the online experiments docker container.
+- Adding script to create a backup of the fatigue risk management docker container.
+
+09-24-2021
+- Created a utility to automatically manage and create backups of docker containers regularly and handle any number of docker containers configured.
+- Updated the google sheet with the emulator stimuli with the changed author names and image names.
+
+TODO: Can we pull random profile pictures from a random pool of pictures

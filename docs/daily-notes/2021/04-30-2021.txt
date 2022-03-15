@@ -1,0 +1,7 @@
+04-27-2021
+- Tested the emulator in the qualtrics survey embed again, the sizing appears to work well still.
+- Began working out how to sync the display order of probes/stories between the emulator and survey.
+
+04-29-2021
+- Adding in story and filler content randomization -- currently the filler content is just interspersed evenly between the stories.
+- The story randomized order is synchronized with an available qualtrics survey via javascript and embedded data.

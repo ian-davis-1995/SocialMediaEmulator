@@ -1,0 +1,8 @@
+05-03-2021
+- Adding in experiment event record type for unhandled error, and adding event handler to user interaction tracker to catch any unhandled javascript errors and send them to the server.
+
+05-04-2021
+- Checking how I can size the reading span task more realistically using the virtual chinrest.
+
+05-07-2021
+- Adjusting the post-practice instructions screen with info included in the original experiment and adding a statement asking participants not to write letters down or say them aloud.

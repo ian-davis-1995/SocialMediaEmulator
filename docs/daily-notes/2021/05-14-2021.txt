@@ -1,0 +1,5 @@
+05-10-2021
+- Made the max reading time limit be 2.5 times the standard deviation of reading times during practice trials.
+
+TODO: Instructions within emulator.
+TODO: What are item-level partial-credit scores and how do we calculate them for the RSPAN?

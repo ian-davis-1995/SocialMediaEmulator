@@ -1,0 +1,11 @@
+03-08-2021
+- Successfully got the reading span task included in the digital deception server so it can be hosted on MM.
+- Adding the reading span site to the build script.
+- Implemented the results tracking within the reading span properly.
+
+03-09-2021
+- Added the post trial results screen which shows sentence errors, letters recalled and your overall sentence percentage.
+- Adjusting the randomization for sentence set generation to use randomization without replacement so there aren't duplicates during the experiment.
+
+03-12-2021
+- Put together a writeup on the social media emulator and the fatigue app, including some screenshots of both in the LRIR document.

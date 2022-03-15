@@ -1,0 +1,20 @@
+12-07-2020
+- Create uniform tags for all the console debug messages.
+- Add some more debug logging with proper tags such that they can be filtered out.
+- Did some overall testing on the basic features to make everything is working properly after all the refactoring.
+- Researched ways to add in automated unit testing if possible.
+
+12-08-2020
+- Did some reading into the Qualtrics APIs and possibilities to implement a "optional mandatory" option that flags questions that weren't answered but allows you to continue anyway.
+
+12-09-2020
+- Did some more testing and started working on new animated version of the experiment that replays an entire experiment from start to finish.
+
+12-10-2020
+- Added ability to host static content like images and videos directly from the server VM via the "assets" directory. Going to add a way to upload these assets via the dashboard.
+
+12-11-2020
+- Added new post type "filler" which doesn't have a button bar and just has an image (meme) or text on it to break up the experiment.
+- Made all images optional on posts, properly omitting them from the html if not relevant.
+
+

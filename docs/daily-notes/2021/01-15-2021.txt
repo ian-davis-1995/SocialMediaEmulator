@@ -1,0 +1,16 @@
+01-11-2021
+- Continued implementing the rest of the user interaction events in the animation playback, supporting mouse clicks and user page scrolling.
+
+01-12-2021
+- Fixed an issue with parsing the experiment event records from json when the element variable was null (because it hasn't been parsed yet).
+
+01-13-2021
+- Ran the experiment fully via Qualtrics embed and verified to make sure that it properly recorded all the user events and interactions on the server normally.
+
+01-14-2021
+- Having some issues with the animation playback scrolling the page automatically. It just doesn't want to cooperate. The animation loop at least parses all the events properly and is flagging to the proper event handlers now.
+
+TODO: Determine if I can make the list questions specific subquestions in the "Request Response" condition in matrix type questions.
+TODO: Can we integrate the emulator with a Qualtrics survey, where they start the survey, go to the emulator and then come back to the survey and continue?
+TODO: Bring the OSPAN tasks into the feed.
+TODO: Verify the dashboard has everything it needs and works as expected. Identify todos if not.

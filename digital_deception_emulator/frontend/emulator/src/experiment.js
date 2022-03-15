@@ -2,16 +2,18 @@ import React from "react";
 import { render } from "react-dom";
 import { version } from "../package.json";
 
-import { HeatmapRecord } from "./experiment_playback";
 import { DigitalDeceptionDriver, DummyDigitalDeceptionDriver } from "./network";
+import { HeatmapRecord } from "./experiment_playback";
 import { PostDataProvider } from "./post_data_provider";
 import { shuffle, range } from "./utils/randomization";
+
 import { POST_DATA, findLongestSection } from "./stimuli/post_data";
 import { PracticeCommentBank } from "./stimuli/comment_bank";
-import CommentBank from "./stimuli/comment_bank";
 import { PracticeCommentProvider } from "./stimuli/comment_provider";
-import CommentProvider from "./stimuli/comment_provider";
 import { PRACTICE_POST_DATA } from "./stimuli/practice_post_data";
+
+import CommentBank from "./stimuli/comment_bank";
+import CommentProvider from "./stimuli/comment_provider";
 import AuthorProvider from "./stimuli/author_provider";
 
 console.debug("[STARTUP][experiment.js] - window.showHeatmap = " + window.showHeatmap);
@@ -102,11 +104,9 @@ class PilotExperiment extends React.Component {
         if ((process.env.NODE_ENV !== "production") || debug) {
             console.debug("[STARTUP][experiment.js] - Emulating qualtrics message post with emulator info");
             let storyIds = [
-                "goody-garlick",
                 "turtles-on-treadmills",
                 "irish-moss",
                 "cuttlefish-vision",
-                "twister",
                 "skywalker-resort"
             ];
 

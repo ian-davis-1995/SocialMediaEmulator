@@ -1,0 +1,40 @@
+04-13-2021
+- Removing all "Do You Have Questions?" prompts from the instructions.
+- Fixed the feedback page to layout the percentage and results properly.
+- Adding a next button to the true/false page that goes to the next page, to prevent users from auto clicking through the experiment.
+
+04-15-2021
+- Broke up the actual trials from the practice trials with a screen indicating the actual trial is beginning.
+
+04-16-2021
+- Adjusting font sizing to work better on all display sizes.
+- Making the instructions require a click inside the last continue prompt instead of anywhere on the screen to allow for scrolling the page if necessary.
+- Fixing some overflow issues with the instructions on small mobile displays.
+- Implemented a minimum reading time of 750ms, where if the user clicks past the sentence sooner than that, the click is ignored.
+- Moved the feedback box for sentence up above the button row so it doesn't stretch things out when the screen width is smaller.
+
+Reading Span checklist
+[DONE] One of the first screens say "in this experiment" maybe change to "in this portion of the experiment"
+[DONE] Remove the two prompts of "do you have any questions so far?"
+[DONE] Sentences not properly randomized, duplicates were allowed.
+[DONE] Change language for EXIT button to SUBMIT
+[DONE] Remove language about check boxes
+[DONE] Missing space between "onthe" on second to last screen
+[DONE] Red percentage in top right corner during trials
+[DONE] Implement a next button on the true/false page that users must press, which prevents fast clicking through sentences.
+[DONE] Break up the actual trials from the practice trials.
+[DONE] Font size seemed too big on a 13-inch screen size.
+[DONE] Minimum reading time on sentences of 750ms. Tested this myself and I found that the only times I hit this was on accidental clicks.
+
+[FEEDBACK] Add virtual chinrest to test viewing angle. Do we want this to be part of the experiment? Something only the team uses to test angles initially?
+[FEEDBACK] Filter through the sentence pool and take out controversial statements.
+[FEEDBACK] Should we prompt a five second break before beginning the actual task?
+[FEEDBACK] Should we tell subjects not to write anything down?
+[FEEDBACK] Should we tell subjects to say letters out loud?
+[FEEDBACK] Should we say not to rehearse or assume the sentence reading portion will prevent that?
+[FEEDBACK] Are we going to enforce the 85% requirement noted in the original instructions?
+[FEEDBACK] More direct statement about speed/accuracy tradeoff.
+[FEEDBACK] Are letters randomized properly?
+
+Emulator
+Test embedding the emulator in a qualtrics survey.

@@ -1,0 +1,5 @@
+12-1-2020
+- Fixed bug with modal dialog not showing up at the right position on posts not at the top of the page.
+
+12-04-2020
+- Fixed bug with the modal reply scroll tracker not activating properly because of the id changes on the modal view.

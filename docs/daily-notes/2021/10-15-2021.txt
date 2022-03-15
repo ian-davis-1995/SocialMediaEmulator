@@ -1,0 +1,14 @@
+10-13-2021
+- Made the story scrolling work on the whole window not just the popup.
+- Made the continue button stand out more from the comments, bold font size 30px.
+- Moved the continue button below the comments.
+- Fixing issues with trackpad scrolling functionality on mac.
+
+10-14-2021
+- Updating the emulator embed interface into two files, one for the practice and one for main emulator. These now support the new validation messaging system and overriding the "next button" on qualtrics to intercept the first click and check the emulator.
+- Make the next button on the emulator page enabled but check to make sure emulator is done, highlight missing if not and then continue if pressed again.
+- Adding error handling for the case where the news story/stories provided by the survey are unknown (should not happen but just in case).
+- Adding some padding to the prior knowledge answer buttons so that text doesn't come out of the button.
+
+TODO: Testing in Edge
+TODO: Could we create a demo of the emulator and add sleep data

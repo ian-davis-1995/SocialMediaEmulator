@@ -1,0 +1,2 @@
+Posted a sample json format of the post data on basecamp, along with a visual diagram indicating how the keys are used to render the post.
+Got the first working implementation of the user interaction tracker to create a single handler for gathering all the events of the experiment.

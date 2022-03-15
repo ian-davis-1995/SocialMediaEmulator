@@ -1,0 +1,13 @@
+11-2-2021
+- Finalizing scripts that can import the google sheet of emulator stimuli into the appropriate json formats.
+- Got the first version of categorical comment and author randomization in the emulator.
+
+11-3-2021
+- Fixing a few bugs with the database after the comment and author randomization change.
+- Changing word stories in validation dialog to "excerpts".
+- Requiring users to interact with all excerpts (but not distractor tasks) before continuing past emulator in survey.
+
+11-5-2021
+- Changing the comment randomization to work on separate category banks so there aren't repeats between different categories.
+
+TODO: Version the data based on server version so we know what version they ran it on.

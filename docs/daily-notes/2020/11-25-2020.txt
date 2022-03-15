@@ -1,0 +1,5 @@
+Fixed issues with the modal popup not getting any mouse events because of bootstrap.
+Also added IDs to all the components of the modal post viewer for use with user interaction tracking.
+
+TODO: Determine why the scroll tracker is not properly identifying the modal viewer and the replies.
+

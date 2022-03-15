@@ -1,0 +1,11 @@
+06-28-2021
+- Made the comments a separate expandable section on the modal view
+- Made the modal view a fixed size popup which makes the content be presented more consistently when scrolling and laid out better.
+
+06-29-2021
+- Fixed issues with the scrolling viewer by rate limiting the amount of mouse wheel events I will listen to to 50ms.
+- Got rid of some unneeded scrollbars by setting overflow to hidden in cases where it was applicable.
+
+06-30-2021
+- Made the vertical scroll indicators clickable, allowing the user to navigate through the chunks that way as well.
+

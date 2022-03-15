@@ -1,0 +1,11 @@
+08-30-2021
+- Created dockerfiles that create containerized versions of the online-experiments server and the dokuwiki fatigue-risk-management repository.
+- Made the prior knowledge questions start out as "not answered" until they are at least shown the prompt once.
+- Made a new "criteria met event which fires a server request that posts and experiment finished event. This can be used to stamp the end of the experiment.
+- A popup is now shown when the user finishes all the page interactions indicating they are done and to move on in the experiment.
+
+08-31-2021
+- Added in a summary export file that writes out summary statistics of each experiment selected which will be better for early pilot analysis. Now, when exporting from the web, a zip is exported with both the summary and full export files.
+
+TODO: Maybe session or segment for the final screen. Say the "arrow" button at the bottom.
+TODO: Check if they haven't read all stories what happens.

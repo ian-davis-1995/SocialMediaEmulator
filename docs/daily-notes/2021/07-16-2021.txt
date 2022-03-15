@@ -1,0 +1,16 @@
+07-12-2021
+- Got the post reading knowledge check question reintegrated, it now pops up after the story section is dismissed.
+- Making the required content criteria include all the stories now, so that users have to respond to the prior knowledge checks after reading.
+
+07-13-2021
+- Needed to redo the emulator embed script to send the randomized order to the emulator, since it was going to need randomized before the emulator runs.
+
+07-14-2021
+- Made the emulator support taking the order from a script insert instead of creating it itself.
+
+07-15-2021
+- Needed the emulator to message the qualtrics script when it is mounted so it can receive the emulator info properly.
+
+TODO: Randomize the comments assignment.
+TODO: 2-3 comments per.
+TODO: Make the times 0-3 days at most.

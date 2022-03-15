@@ -1,0 +1,15 @@
+09-28-2021
+- Made the story view only closable by a "continue" button on the last story segments.
+- Added distractor at the end of the emulator (distractor 8) for seamless transition between emulator and survey.
+
+09-30-2021
+- Added an indication on the first story viewer that the user can scroll or click indicators to navigate through story segments.
+
+10-01-2021
+- Tested to ensure events are fired to indicate that users viewed the comments section or not.
+- Finalized the automated backup script that runs once a week to backup the online experiments docker containers.
+
+TODO: Make a bank of author names and randomly assign them to the elements -- not for pilot due to complexity.
+TODO: Make the clicking buttons time rated at 250ms.
+
+NOTE: Qualtrics scoring supports multiple categories, you can have a category for the total possible score and one for the total correct score.

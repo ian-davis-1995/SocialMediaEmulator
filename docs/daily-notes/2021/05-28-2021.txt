@@ -1,0 +1,8 @@
+05-24-2021
+- Added in definitions for all the distractor tasks.
+- Added in proper handling of "required" response questions within the emulator which can be relayed to the qualtrics survey if exists. Also posts it as an event to MM db.
+
+05-25-2021
+- Fixing the communication between the emulator and qualtrics when emulator condition is finished.
+- Removing debug alerts on the emulator when the finish condition is met.
+- First draft working version of the emulator embedded in a qualtrics survey which prevents continuing until the emulator is finished.

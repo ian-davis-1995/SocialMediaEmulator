@@ -1,0 +1,15 @@
+01-04-2021
+- Made Adjustments to the IRB description of data storage on the MindModeling server.
+- Downloaded the Oswald shortened reading span task experiment to see if it would be possible to access the source.
+
+01-05-2021
+- Did some more testing on the experimenter dashboard and started implementing changes to support all the new in-depth user event tracking.
+
+01-06-2021
+- Continued implementing the new user event tracking, specifically within the animation playback of the experiment.
+- Fixed some bugs with the export view after some of the event data was restructured.
+
+TODO: Determine if I can make the list questions specific subquestions in the "Request Response" condition in matrix type questions.
+TODO: Can we integrate the emulator with a Qualtrics survey, where they start the survey, go to the emulator and then come back to the survey and continue?
+TODO: Bring the OSPAN tasks into the feed.
+TODO: Verify the dashboard has everything it needs and works as expected. Identify todos if not.

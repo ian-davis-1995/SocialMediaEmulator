@@ -1,0 +1,12 @@
+03-01-2021
+- Refactored the letters and sentence events/states (again) to now be grouped under one hierarchy together. This will make the task of orchestrating the full experiment much easier.
+- Figured out some concrete timing information on the reading span task based on the number of trials expected.
+
+03-02-2021
+- Got the combined practice experiment working. The real experiment is not registering clicks for the sentences though.
+- Fixed the bug with the full experiment, now both appear to be working properly. Had to change the way I create the blocs and only use one experiment bloc and reset it as necessary.
+- Added some images in for the news stories to update the screenshots with a better showcase of the emulator's features.
+- Took a new battery of screenshots of the emulator, this time much more comprehensive and with pictures.
+
+03-05-2021
+- Created a javascript addon for qualtrics that picks a random story order and embeds it in the survey data to drive the survey flow and ensure things are presented in the right order.

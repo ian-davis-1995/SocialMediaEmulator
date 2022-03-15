@@ -1,0 +1,5 @@
+04-20-2021
+- Making some tweaks to how the emulator shows up on mobile display. Still a few odd issues where size ratios need adjusted more uniformly.
+
+04-22-2021
+- Further tweaks to the emulator sizing. Struggling to size images properly in posts and popups, especially across different aspect ratios. Going to change the sizing so that it targets the most common aspect ratios of 4:3 16:9 16:10 etc and see if that plays better on mobile/tablet.
