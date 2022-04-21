@@ -7,3 +7,4 @@ dist/
 digital_deception.db
 node_modules/
 __pycache__
+notes/
