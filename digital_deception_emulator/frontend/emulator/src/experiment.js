@@ -134,7 +134,7 @@ class PilotExperiment extends React.Component {
         "skywalker-resort",
       ];
 
-      let distractorTasks = shuffle(range(13, 1)).map(
+      let distractorTasks = shuffle(range(10, 1)).map(
         (i) => "distractor-task-" + i
       );
 
