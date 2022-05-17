@@ -128,6 +128,6 @@ def run(subdomain="/digital-deception", production=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Run the Digital Deception Emulator web server")
     parser.add_argument("--subdomain", default="/digital-deception", help="The sub domain to mount the app at")
-    parser.add_argument("--production", action="store_true", help="Enable production mode")
+    parser.add_argument("--production", default=False, action="store_true", help="Enable production mode")
     args = parser.parse_args()
     run(subdomain=args.subdomain, production=args.production)
