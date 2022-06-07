@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
     docker_utils.build_docker_container(
         "digital_deception_emulator",
-        version_number=docker_utils.get_version_number(),
+        version_number=docker_utils.get_version_number().replace("-", "."),
         mount=True,
         mount_source=mount_source,
         mount_folder="digital_deception_data",
