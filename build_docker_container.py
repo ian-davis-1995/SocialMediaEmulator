@@ -28,7 +28,7 @@ if __name__ == "__main__":
         version_number=docker_utils.get_version_number().replace("-", "."),
         mount=True,
         mount_source=mount_source,
-        mount_folder="digital_deception_data",
+        mount_folder="digital_deception",
         mount_destination="/digital_deception_data",
         restart_policy="unless-stopped",
         port_mappings={"5001": "5001"},
