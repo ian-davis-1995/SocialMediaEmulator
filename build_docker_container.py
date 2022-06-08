@@ -32,4 +32,5 @@ if __name__ == "__main__":
         mount_destination="/digital_deception_data",
         restart_policy="unless-stopped",
         port_mappings={"5001": "5001"},
+        network_mode="online-experiments",
     )
