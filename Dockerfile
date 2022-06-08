@@ -23,4 +23,4 @@ COPY ./digital_deception_emulator/backend /DigitalDeception/digital_deception_em
 
 EXPOSE 5001
 
-CMD ["python3.6", "-m", "digital_deception_emulator.application", "--shared_data_location", "/digital_deception_data/", "--port", "5001", "--subdomain", "/", "--production"]
+CMD ["python3.6", "-m", "digital_deception_emulator.application", "--shared_data_location", "/digital_deception_data/", "--port", "5001", "--subdomain", "/digital-deception/", "--production"]
