@@ -121,7 +121,7 @@ if __name__ == "__main__":
     parser.add_argument("--subdomain", default="/digital-deception", help="The sub domain to mount the app at")
     parser.add_argument("--production", default=False, action="store_true", help="Enable production mode")
     parser.add_argument("--shared_data_location", help="The location of the root shared data folder")
-    parser.add_argument("--port", type=int, help="The port to listen on")
+    parser.add_argument("--port", type=int, help="The port to listen on", default=8080)
     args = parser.parse_args()
     run(
         subdomain=args.subdomain,
