@@ -9,7 +9,6 @@ import { MultiChoiceImage } from "../distractions/multi_choice_image";
 import SeparatedStory from "./separated_story";
 import VerticalSeparatedStory from "./vertical_separated_story";
 
-
 export function BasicPostBody(props) {
     return (
         <div className="post-body-container" id={props.id + "-body"}>
@@ -23,13 +22,21 @@ export function FillerPostBody(props) {
     let text;
 
     if (props.post.image !== undefined && props.post.image !== null) {
-        image = <div className={"post-image-container"} id={props.id + "-image-container"}>
-            <img src={props.post.image}
-                alt={props.post.imageAlt} className={"post-image"}
-                id={props.id + "-image"}
-                width={props.post.imageWidth}
-                height={props.post.imageHeight} />
-        </div>;
+        image = (
+            <div
+                className={"post-image-container"}
+                id={props.id + "-image-container"}
+            >
+                <img
+                    src={props.post.image}
+                    alt={props.post.imageAlt}
+                    className={"post-image"}
+                    id={props.id + "-image"}
+                    width={props.post.imageWidth}
+                    height={props.post.imageHeight}
+                />
+            </div>
+        );
     }
 
     if (props.post.text !== undefined && props.post.text !== null) {
@@ -41,7 +48,7 @@ export function FillerPostBody(props) {
             {image}
             {text}
         </div>
-    )
+    );
 }
 
 function RepliesSection(props) {
@@ -56,30 +63,50 @@ function RepliesSection(props) {
     return (
         <div className={"post-replies-container"}>
             <hr className={"post-section-separator"} />
-            <button type={"button"} className={"button post-replies-button"}
+            <button
+                type={"button"}
+                className={"button post-replies-button"}
                 onClick={() => {
-                    props.onRepliesClicked()
+                    props.onRepliesClicked();
                 }}
-                id={props.id + "-view-replies-button"}>{repliesMessage}</button>
+                id={props.id + "-view-replies-button"}
+            >
+                {repliesMessage}
+            </button>
         </div>
-    )
+    );
 }
 
 function ButtonRow(props) {
-    return (<div className={"post-button-container"}>
-        <button type="button" className={"button button-bar-button" + (props.seenChosen ? " chosen" : "")}
-            onClick={() => props.onSeenClicked()} disabled={props.seenChosen}
-            id={props.id + "-seen-button"}>
-            <i className="material-icons button-icon">check</i>
-            <div className={"post-button-text"}>Seen Before</div>
-        </button>
-        <button type="button" className={"button button-bar-button" + (props.uniqueChosen ? " chosen" : "")}
-            onClick={() => props.onUniqueClicked()} disabled={props.uniqueChosen}
-            id={props.id + "-unique-button"}>
-            <i className="material-icons button-icon">cancel</i>
-            <div className={"post-button-text"}>Unique</div>
-        </button>
-    </div>
+    return (
+        <div className={"post-button-container"}>
+            <button
+                type="button"
+                className={
+                    "button button-bar-button" +
+                    (props.seenChosen ? " chosen" : "")
+                }
+                onClick={() => props.onSeenClicked()}
+                disabled={props.seenChosen}
+                id={props.id + "-seen-button"}
+            >
+                <i className="material-icons button-icon">check</i>
+                <div className={"post-button-text"}>Seen Before</div>
+            </button>
+            <button
+                type="button"
+                className={
+                    "button button-bar-button" +
+                    (props.uniqueChosen ? " chosen" : "")
+                }
+                onClick={() => props.onUniqueClicked()}
+                disabled={props.uniqueChosen}
+                id={props.id + "-unique-button"}
+            >
+                <i className="material-icons button-icon">cancel</i>
+                <div className={"post-button-text"}>Unique</div>
+            </button>
+        </div>
     );
 }
 
@@ -89,63 +116,104 @@ export function PostBody(props) {
     } else if (props.post.type === "quiz") {
         return QuizBody(props);
     } else if (props.post.type === "news_story") {
-        return <NewsPostBody post={props.post}
-            id={props.id}
-            modal={props.modal}
-            onNewsPostClicked={() => { props.onNewsPostClicked() }} />;
+        return (
+            <NewsPostBody
+                post={props.post}
+                id={props.id}
+                modal={props.modal}
+                onNewsPostClicked={() => {
+                    props.onNewsPostClicked();
+                }}
+            />
+        );
     } else if (props.post.type === "filler") {
         return FillerPostBody(props);
     } else if (props.post.type === "distraction-brick-wall-cigar") {
         return <BrickWallCigar />;
     } else if (props.post.type === "two-similar-pictures") {
-        return <TwoSimilarPictures imageOne={props.post.imageOne}
-            imageTwo={props.post.imageTwo}
-            id={props.post.id}
-            imageOneWidth={props.post.imageOneWidth}
-            imageOneHeight={props.post.imageOneHeight}
-            imageTwoWidth={props.post.imageTwoWidth}
-            imageTwoHeight={props.post.imageTwoHeight}
-            description={props.post.description} />;
+        return (
+            <TwoSimilarPictures
+                imageOne={props.post.imageOne}
+                imageTwo={props.post.imageTwo}
+                id={props.post.id}
+                imageOneWidth={props.post.imageOneWidth}
+                imageOneHeight={props.post.imageOneHeight}
+                imageTwoWidth={props.post.imageTwoWidth}
+                imageTwoHeight={props.post.imageTwoHeight}
+                description={props.post.description}
+            />
+        );
     } else if (props.post.type === "image-chooser") {
-        return <ImageChooser images={props.post.images}
-            imagesPerRow={props.post.imagesPerRow}
-            prompt={props.post.prompt}
-            id={props.post.id} />;
+        return (
+            <ImageChooser
+                images={props.post.images}
+                imagesPerRow={props.post.imagesPerRow}
+                prompt={props.post.prompt}
+                id={props.post.id}
+            />
+        );
     } else if (props.post.type === "single-image-view") {
-        return <SingleImageView image={props.post.image}
-            prompt={props.post.prompt}
-            id={props.post.id}
-            imageWidth={props.post.imageWidth}
-            imageHeight={props.post.imageHeight} />
+        return (
+            <SingleImageView
+                image={props.post.image}
+                prompt={props.post.prompt}
+                id={props.post.id}
+                imageWidth={props.post.imageWidth}
+                imageHeight={props.post.imageHeight}
+            />
+        );
     } else if (props.post.type === "multiple-choice-image") {
-        return <MultiChoiceImage image={props.post.image}
-            question={props.post.question}
-            id={props.post.id}
-            answers={props.post.answers}
-            currentAnswer={props.post.answer}
-            onAnswerChanged={props.onMultiChoiceAnswerChanged} />;
+        return (
+            <MultiChoiceImage
+                image={props.post.image}
+                question={props.post.question}
+                id={props.post.id}
+                answers={props.post.answers}
+                currentAnswer={props.post.answer}
+                onAnswerChanged={props.onMultiChoiceAnswerChanged}
+            />
+        );
     } else if (props.post.type === "separated_story") {
-        return <SeparatedStory storySegments={props.post.storySegments}
-            id={props.post.id}
-            comments={props.post.comments}
-            currentAnswer={props.post.answer}
-            onPriorKnowledgeChanged={props.onPriorKnowledgeChanged} />;
+        return (
+            <SeparatedStory
+                storySegments={props.post.storySegments}
+                id={props.post.id}
+                comments={props.post.comments}
+                currentAnswer={props.post.answer}
+                onPriorKnowledgeChanged={props.onPriorKnowledgeChanged}
+            />
+        );
     } else if (props.post.type === "vertical_separated_story") {
-        return <VerticalSeparatedStory
-            modal={props.modal}
-            title={props.post.title}
-            storySegments={props.post.storySegments}
-            currentAnswer={props.post["answer"]}
-            id={props.post.id}
-            comments={props.post.comments}
-            currentAnswer={props.post.answer}
-            showHelpInstructions={props.showHelpInstructions}
-            onStoryClicked={props.onVerticalSeparatedStoryClicked}
-            onStoryCompleted={props.onStoryCompleted}
-            onStorySegmentRead={props.onStorySegmentRead}
-            hasErrors={props.hasErrors}
-            showValidationErrors={props.showValidationErrors}
-            onPriorKnowledgeChanged={props.onPriorKnowledgeChanged} />;
+        return (
+            <VerticalSeparatedStory
+                modal={props.modal}
+                title={props.post.title}
+                storySegments={props.post.storySegments}
+                id={props.post.id}
+                comments={props.post.comments}
+                currentAnswer={props.post.answer}
+                showHelpInstructions={props.showHelpInstructions}
+                onStoryClicked={props.onVerticalSeparatedStoryClicked}
+                onStoryCompleted={props.onStoryCompleted}
+                onStorySegmentRead={props.onStorySegmentRead}
+                hasErrors={props.hasErrors}
+                showValidationErrors={props.showValidationErrors}
+                onPriorKnowledgeChanged={props.onPriorKnowledgeChanged}
+            />
+        );
+    } else if (props.post.type == "youtube-video") {
+        return (
+            <div className="youtube-player-container">
+                <iframe
+                    width={props.post.videoWidth}
+                    height={props.post.videoHeight}
+                    src={props.post.url}
+                    title={props.post.videoTitle}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                ></iframe>
+            </div>
+        );
     } else {
         return <div />;
     }
@@ -161,11 +229,20 @@ export function SocialMediaPost(props) {
     let buttonRow;
     let profilePicture;
 
-    if (props.post.profilePicture !== undefined && props.post.profilePicture !== null) {
-        profilePicture = <div className={"profile-picture-container"}>
-            <img src={props.post.profilePicture}
-                className={"profile-picture"} alt={"User Profile"} id={props.id + "-profile-picture"} />
-        </div>;
+    if (
+        props.post.profilePicture !== undefined &&
+        props.post.profilePicture !== null
+    ) {
+        profilePicture = (
+            <div className={"profile-picture-container"}>
+                <img
+                    src={props.post.profilePicture}
+                    className={"profile-picture"}
+                    alt={"User Profile"}
+                    id={props.id + "-profile-picture"}
+                />
+            </div>
+        );
     }
 
     let topBar;
@@ -173,12 +250,21 @@ export function SocialMediaPost(props) {
     if (!props.post.advertisementStyle) {
         topBar = (
             <div id={`${props.id}-title-container`}>
-                <div className={"post-title-container"} id={props.id + "-title"}>
+                <div
+                    className={"post-title-container"}
+                    id={props.id + "-title"}
+                >
                     {profilePicture}
-                    <div className={"post-author-container"} id={props.id + "-author"}>
+                    <div
+                        className={"post-author-container"}
+                        id={props.id + "-author"}
+                    >
                         {props.post.author}
                     </div>
-                    <div className={"post-date-container"} id={props.id + "-post-date"}>
+                    <div
+                        className={"post-date-container"}
+                        id={props.id + "-post-date"}
+                    >
                         {props.post.postDate}
                     </div>
                 </div>
@@ -188,7 +274,10 @@ export function SocialMediaPost(props) {
     } else {
         // In advertisement mode we don't show the top bar, button bar or replies section. Just content.
         topBar = (
-            <div className={"advertisement-title-container"} id={`${props.id}-advertisement-title`}>
+            <div
+                className={"advertisement-title-container"}
+                id={`${props.id}-advertisement-title`}
+            >
                 Sponsored
                 <hr className={"post-section-separator"} />
             </div>
@@ -210,12 +299,15 @@ export function SocialMediaPost(props) {
                 onNewsPostClicked={props.onNewsPostClicked}
                 hasErrors={props.hasErrors}
                 showValidationErrors={props.showValidationErrors}
-                onVerticalSeparatedStoryClicked={props.onVerticalSeparatedStoryClicked}
+                onVerticalSeparatedStoryClicked={
+                    props.onVerticalSeparatedStoryClicked
+                }
                 onMultiChoiceAnswerChanged={props.onMultiChoiceAnswerChanged}
                 showHelpInstructions={props.showHelpInstructions}
                 onStorySegmentRead={props.onStorySegmentRead}
                 onStoryCompleted={props.onStoryCompleted}
-                modal={props.modal} />
+                modal={props.modal}
+            />
             {repliesSection}
         </div>
     );

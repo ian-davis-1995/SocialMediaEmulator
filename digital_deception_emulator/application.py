@@ -105,7 +105,7 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
     cherrypy.log("=" * 100)
 
 
-def run(subdomain="/digital-deception", production=False, shared_data_location=None, port=8080):
+def run(subdomain="/", production=False, shared_data_location=None, port=8080):
     setup_server(subdomain=subdomain, production=production, shared_data_location=shared_data_location)
 
     cherrypy.log("setting server port to:" + str(port))
@@ -118,7 +118,7 @@ def run(subdomain="/digital-deception", production=False, shared_data_location=N
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Run the Digital Deception Emulator web server")
-    parser.add_argument("--subdomain", default="/digital-deception", help="The sub domain to mount the app at")
+    parser.add_argument("--subdomain", default="/", help="The sub domain to mount the app at")
     parser.add_argument("--production", default=False, action="store_true", help="Enable production mode")
     parser.add_argument("--shared_data_location", help="The location of the root shared data folder")
     parser.add_argument("--port", type=int, help="The port to listen on", default=8080)
