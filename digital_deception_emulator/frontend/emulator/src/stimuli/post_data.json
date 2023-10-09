@@ -5,12 +5,18 @@
         "prompt": "",
         "image": "/assets/lrir/memes/2.png",
         "imageWidth": 797,
-        "imageHeight": 542
+        "imageHeight": 542,
+        "author": "Megan Brady",
+        "profilePicture": "/assets/profile-pictures/megan.jpg",
+        "postDate": "4 Days Ago"
     },
     {
         "id": "sleep-tech-article",
         "type": "pdf-article",
-        "pdf": "/assets/lrir/articles/sleep-tech-article-gain.pdf"
+        "pdf": "/assets/lrir/articles/sleep-tech-article-gain.pdf",
+        "width": 720,
+        "height": 600,
+        "advertisementStyle": true
     },
     {
         "id": "sleeping-hobby-meme",
@@ -18,7 +24,10 @@
         "prompt": "",
         "image": "/assets/lrir/memes/3.png",
         "imageWidth": 595,
-        "imageHeight": 783
+        "imageHeight": 783,
+        "author": "Rachel Kelley",
+        "profilePicture": "/assets/profile-pictures/rachel.jpg",
+        "postDate": "5 Days Ago"
     },
     {
         "id": "sleep-wrong-video",
@@ -26,7 +35,7 @@
         "url": "https://www.youtube.com/embed/Hep7Ah4ZO7c?si=3HweXcR97g7Xw8Vn",
         "postDate": "2 Days Ago",
         "author": "Beth Lawrence",
-        "profilePicture": "/digital-deception/assets/profile-pictures/beth.jpg",
+        "profilePicture": "/assets/profile-pictures/beth.jpg",
         "videoWidth": 720,
         "videoHeight": 480,
         "videoTitle": "Everything You Know About Sleep Is Wrong"
@@ -37,12 +46,16 @@
         "prompt": "",
         "image": "/assets/lrir/memes/5.png",
         "imageWidth": 528,
-        "imageHeight": 486
+        "imageHeight": 486,
+        "advertisementStyle": true
     },
     {
         "id": "behaviors-during-sleep-infographic",
         "type": "pdf-infographic",
-        "pdf": "/assets/lrir/infographics/behaviors-during-sleep-gain.pdf"
+        "pdf": "/assets/lrir/infographics/behaviors-during-sleep-gain.pdf",
+        "width": 720,
+        "height": 800,
+        "advertisementStyle": true
     },
     {
         "id": "fall-asleep-meme",
@@ -50,7 +63,10 @@
         "prompt": "",
         "image": "/assets/lrir/memes/6.png",
         "imageWidth": 705,
-        "imageHeight": 578
+        "imageHeight": 578,
+        "author": "Beth Lawrence",
+        "profilePicture": "/assets/profile-pictures/beth.jpg",
+        "postDate": "4 Days Ago"
     },
     {
         "id": "best-practice-meme",
@@ -58,6 +74,9 @@
         "prompt": "",
         "image": "/assets/lrir/memes/7.png",
         "imageWidth": 622,
-        "imageHeight": 812
+        "imageHeight": 812,
+        "author": "Rachel Kelley",
+        "profilePicture": "/assets/profile-pictures/rachel.jpg",
+        "postDate": "5 Days Ago"
     }
 ]

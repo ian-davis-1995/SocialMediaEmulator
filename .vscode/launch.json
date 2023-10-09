@@ -1,19 +1,19 @@
 {
-  "configurations": [
-    {
-      "command": "npm run start-experiment",
-      "name": "Experiment Debug",
-      "request": "launch",
-      "type": "node-terminal",
-      "cwd": "${workspaceFolder}/digital_deception_emulator/frontend/emulator"
-    },
-    {
-      "name": "Cherrypy Server",
-      "type": "python",
-      "request": "launch",
-      "module": "digital_deception_emulator.application",
-      "justMyCode": true
-      //   "preLaunchTask": "npm_build_all"
-    }
-  ]
+    "configurations": [
+        {
+            "command": "npm run start-experiment",
+            "name": "Experiment Debug",
+            "request": "launch",
+            "type": "node-terminal",
+            "cwd": "${workspaceFolder}/digital_deception_emulator/frontend/emulator"
+        },
+        {
+            "name": "Cherrypy Server",
+            "type": "python",
+            "request": "launch",
+            "module": "digital_deception_emulator.application",
+            "justMyCode": true,
+            "preLaunchTask": "npm_build_all"
+        }
+    ]
 }

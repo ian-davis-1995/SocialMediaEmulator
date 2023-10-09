@@ -214,8 +214,25 @@ export function PostBody(props) {
                 ></iframe>
             </div>
         );
+    } else if (
+        props.post.type == "pdf-article" ||
+        props.post.type == "pdf-infographic"
+    ) {
+        return (
+            <div className="pdf-article-container">
+                <iframe
+                    src={
+                        props.post.pdf +
+                        "#toolbar=0&navpanes=0&scrollbar=0&pagemode=none"
+                    }
+                    width={props.post.width}
+                    height={props.post.height}
+                    type="application/pdf"
+                />
+            </div>
+        );
     } else {
-        return <div />;
+        return <div>Unsupported post type</div>;
     }
 }
 

@@ -126,7 +126,7 @@
   font-weight: lighter;
 }
 
-.youtube-player-container {
+.youtube-player-container, .pdf-article-container {
   display: flex;
   justify-content: center;
   align-content: center;

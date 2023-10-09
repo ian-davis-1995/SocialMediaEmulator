@@ -1,0 +1,14 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "build",
+            "path": "digital_deception_emulator/frontend/emulator",
+            "group": "build",
+            "problemMatcher": [],
+            "label": "npm_build_all",
+            "detail": "webpack -p --progress --config webpack.config.js"
+        }
+    ]
+}
