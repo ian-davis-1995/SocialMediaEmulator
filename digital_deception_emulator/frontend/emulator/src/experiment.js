@@ -216,6 +216,14 @@ class PilotExperiment extends React.Component {
         );
         console.debug(this.props.posts);
 
+        const postsWithComments = POST_DATA.map((post) => {
+            post["category"] = "historic";
+            const replies = this.commentProvider.getCommentsForPost(post);
+            post["replies"] = replies;
+            console.debug("picking comments for post", post);
+            return post;
+        });
+
         return (
             <PostDataProvider
                 showHeatmap={showHeatmap}
@@ -223,7 +231,7 @@ class PilotExperiment extends React.Component {
                 testId={testId}
                 heatmapYOffset={0}
                 serverDriver={serverDriver}
-                posts={POST_DATA}
+                posts={postsWithComments}
                 practiceMode={this.props.practiceMode}
                 requiredResponsePosts={[]}
                 onUserDismissedValidation={dismissedValidationFunction}

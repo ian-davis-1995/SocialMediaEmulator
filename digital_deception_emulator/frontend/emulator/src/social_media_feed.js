@@ -238,8 +238,20 @@ export class SocialMediaFeed extends React.Component {
                     post={this.state.postRepliesToView}
                     onStorySegmentRead={this.onStorySegmentRead}
                     onStoryCompleted={this.onStoryCompleted}
-                    onCloseClicked={function (event) {}}
-                    onBackgroundClicked={function (event) {}}
+                    onCloseClicked={function (event) {
+                        console.debug("modal post popup close clicked");
+                        this.setState({
+                            viewingReplies: false,
+                            postRepliesToView: null,
+                        });
+                    }}
+                    onBackgroundClicked={function (event) {
+                        console.debug("modal post popup background clicked");
+                        this.setState({
+                            viewingReplies: false,
+                            postRepliesToView: null,
+                        });
+                    }}
                     onDialogClicked={(event) =>
                         this.onDialogClicked(
                             this.state.postRepliesToView,
