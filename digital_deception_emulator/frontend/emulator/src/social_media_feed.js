@@ -238,20 +238,8 @@ export class SocialMediaFeed extends React.Component {
                     post={this.state.postRepliesToView}
                     onStorySegmentRead={this.onStorySegmentRead}
                     onStoryCompleted={this.onStoryCompleted}
-                    onCloseClicked={function (event) {
-                        console.debug("modal post popup close clicked");
-                        this.setState({
-                            viewingReplies: false,
-                            postRepliesToView: null,
-                        });
-                    }}
-                    onBackgroundClicked={function (event) {
-                        console.debug("modal post popup background clicked");
-                        this.setState({
-                            viewingReplies: false,
-                            postRepliesToView: null,
-                        });
-                    }}
+                    onCloseClicked={this.onPostRepliesDismissed}
+                    onBackgroundClicked={this.onPostRepliesDismissed}
                     onDialogClicked={(event) =>
                         this.onDialogClicked(
                             this.state.postRepliesToView,
@@ -424,6 +412,13 @@ export class SocialMediaFeed extends React.Component {
         this.priorKnowledgeStartTime = Date.now();
         this.setState({
             showingKnowledgeCheck: false,
+        });
+    }
+
+    onPostRepliesDismissed() {
+        this.setState({
+            viewingReplies: false,
+            postRepliesToView: null,
         });
     }
 
