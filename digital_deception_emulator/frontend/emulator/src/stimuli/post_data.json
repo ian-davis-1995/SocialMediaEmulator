@@ -16,7 +16,9 @@
         "pdf": "/assets/lrir/articles/sleep-tech-article-gain.pdf",
         "width": 720,
         "height": 600,
-        "advertisementStyle": true
+        "author": "Sarah Ann Kline",
+        "profilePicture": "/assets/profile-pictures/jackson.jpg",
+        "postDate": "1 Day Ago"
     },
     {
         "id": "sleeping-hobby-meme",
