@@ -1,6 +1,12 @@
 # Overview
 
-This is the CherryPy-based web server hosting the Digital Deception research projects, primarily the Social Media Emulator.
+This is the CherryPy-based web server hosting the social media emulator.
+The social media emulator is a framework for designing experiments that mimic a social media page, similar to Facebook or Twitter.
+It includes a modifiable and extensible feed of predefined "posts" in several various formats (images, stories, infographics, youtube videos).
+Posts can then include a list of comments, randomized from a bank.
+Comments can be further randomized using a bank of author names to attribute the comment to.
+Several other social media like features are extensible, including popup views, popup interactions such as knowledge questions, and more.
+The frontend uses ReactJS to create a component hierarchy allowing for easy customization and addition of new features.
 
 ## Getting Started
 
