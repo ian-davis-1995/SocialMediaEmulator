@@ -1,2 +1,0 @@
-shortened span tasks -- oswald and foster -- convert to js?
-adjust irb description

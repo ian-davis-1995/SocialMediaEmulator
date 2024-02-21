@@ -1,9 +1,0 @@
-02-08-2021
-- Refactoring the CSS in order to handle the font sizing and layout more concisely across the board.
-- Fixing some dependency versions to support the latest react version.
-
-02-10-2021
-- Incorporating the reading probe stories into the news feed.
-
-02-12-2021
-- Met with Katie on base to run the OSpan and RSpan tasks on the licensed E-Studio. Gained some insights into some changes we might want to make.

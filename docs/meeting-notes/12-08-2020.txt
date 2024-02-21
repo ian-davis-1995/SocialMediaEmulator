@@ -1,6 +1,0 @@
-Confidence ratings:
-3-5 point likert scales with thumbs up emojis or happy face emojis.
-Hover over like button and get options with popup scale.
-Do you exactly recall something.
-TODO: Ability to show meme-like data or random social media posts. Take off the response options as these are just filler until we figure out if we want to garner some type of response from user.
-TODO: Qualtrics login info on message board. Playing with linking into qualtrics and emulator. Flagging responses as pseudo-flagged.

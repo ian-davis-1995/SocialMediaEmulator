@@ -1,6 +1,0 @@
-TODO: Implement a way to ask "attention check" questions like "what day of the week is it?" randomize the order of that question in the feed perhaps.
-    If they fail the attention checks they should go to the end of the experiment.
-
-DONE:
-Implement a way to feed in the post data.
-Post a sample json format of the post data on basecamp, along with a visual diagram indicating how the keys are used to render the post.

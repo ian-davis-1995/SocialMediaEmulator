@@ -1,6 +1,0 @@
-09-07-2021
-- Randomized all the last names for comments, stories, etc.
-- Checked what happens when all stories aren't read, most data is saved but some event data at the end of the experiment may be lost.
-
-09-08-2021 
-- Changed prior knowledge question wording.

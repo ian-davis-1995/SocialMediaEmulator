@@ -1,8 +1,0 @@
-08-23-2021
-- Fixed some styling with the datatables for the export.
-
-08-24-2021
-- Created a full export of the emulator data from start to finish using only the web interface.
-
-08-26-2021
-- Fixed some bugs with the web interface export and turned off the mouse events by default for now.

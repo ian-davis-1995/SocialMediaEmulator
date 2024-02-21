@@ -1,7 +1,0 @@
-06-15-2021
-- Added in a section at the end of the stories where comments will be shown.
-
-06-18-2021
-- Updated the story texts to match the changes Rachel made.
-- Created a script to automate the pulling of story changes from the pilot survey into the emulator.
-- Added in a "What is your prior knowledge of the previous passage you just read?" question based on the pilot survey.

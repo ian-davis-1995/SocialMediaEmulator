@@ -1,7 +1,0 @@
-10-05-2021
-- Time rated the section indicator clicks to 250ms.
-
-10-07-2021
-- Bumped the time rating for section clicks and scrolls to 500ms, ignored scrolling up instead of down, and changed the timing behavior to not update each time a scroll/click event is triggered.
-- Adjusting sizing of the vertical story chunk box to make it size responsively but also maintain a minimum size that should ensure all text is visible.
-- Adjusting sizing of the prior knowledge question button containers with media queries so that it wraps the buttons when the screen is under certain width thresholds.

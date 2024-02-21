@@ -1,9 +1,0 @@
-10-26-2021
-- Fixed issues with the prior knowledge question buttons being too small and the text spilling out.
-- Changed the "buttons" to "button" on experiment finished dialog.
-- Upped rate limiting to 1250ms. 
-
-TODO: Don't use the word stories.
-TODO: Separate comment generation into categories and pull from a randomized category.
-TODO: Separate author name generation for comments and randomize.
-TODO: Version the data based on server version so we know what version they ran it on.

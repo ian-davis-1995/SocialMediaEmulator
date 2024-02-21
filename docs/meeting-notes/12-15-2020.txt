@@ -1,1 +1,0 @@
-TODO: Can we integrate the emulator with a Qualtrics survey, where they start the survey, go to the emulator and then come back to the survey and continue?

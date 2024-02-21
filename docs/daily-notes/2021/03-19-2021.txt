@@ -1,7 +1,0 @@
-03-18-2021
-- Investigated how the emulator runs on a mobile setting and adjusted some css styles and sizes to make it run better.
-- Still need some adjustments to the distractor tasks so the images display properly and the popup modal window.
-
-03-19-2021
-- Used appropriate media queries to ensure nothing breaks on the regular environment when sizing for mobile.
-- Distractor tasks are still causing issues.

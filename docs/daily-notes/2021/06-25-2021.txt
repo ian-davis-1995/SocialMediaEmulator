@@ -1,5 +1,0 @@
-06-23-2021
-- Made a chunked story post that can be navigated by scrolling vertically.
-
-06-25-2021
-- Made the chunked story only show the title on the main feed and created a popup view of the chunked story.
