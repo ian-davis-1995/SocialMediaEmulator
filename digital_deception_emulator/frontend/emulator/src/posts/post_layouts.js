@@ -1,7 +1,6 @@
 import React from "react";
 import { QuizBody } from "../quiz";
 import { NewsPostBody } from "./news_story";
-import BrickWallCigar from "../distractions/brick-wall-cigar";
 import TwoSimilarPictures from "../distractions/two-similar-pictures";
 import ImageChooser from "../distractions/image-chooser";
 import SingleImageView from "../distractions/single-image-view";

@@ -7,6 +7,32 @@ Posts can then include a list of comments, randomized from a bank.
 Comments can be further randomized using a bank of author names to attribute the comment to.
 Several other social media like features are extensible, including popup views, popup interactions such as knowledge questions, and more.
 The frontend uses ReactJS to create a component hierarchy allowing for easy customization and addition of new features.
+From the research perspective, we collect a battery of different user interaction events as they happen with the page,
+storing a recreatable log of how the user interacts with the page over time.
+
+A short preview of the types of events available includes:
+
+-   ExperimentFinished
+-   MouseClickedElement
+-   MouseEnteredElement
+-   MouseLeftElement
+-   MouseMove
+-   MulitChoiceAnswerChanged
+-   PostCameIntoView
+-   PostLeftView
+-   PostRepliesOpened
+-   PostRepliesClosed
+-   PriorKnowledgeAnswerChanged (no longer used)
+-   ReplyCameIntoView
+-   ReplyLeftView
+-   RequiredResponseCriteriaMet: used for Qualtrics. A message is sent to the Qualtrics window and is used to enable the next page button in qualtrics when the required emulator criteria is met.
+-   StorySegmentRead
+-   UnhandledError: Raised whenever an unhandled error happens in the emulator
+-   UserScrolledFeed
+-   UserScrolledPopup
+-   UserScrolledReplies
+
+All user interaction handling is done inside [user_interaction_tracker.js](digital_deception_emulator/frontend/emulator/src/user_interaction_tracker.js#L88)
 
 ## Getting Started
 
@@ -109,7 +135,7 @@ cherrypy.session["ldap_authenticated"] = 1
 cherrypy.session.get("ldap_authenticated", 0) == 1
 ```
 
-The necessary modifications would need to made in: `backend/login/views.py:14`.
+The necessary modifications would need to be made in: `backend/login/views.py:14`.
 
 # Source Code Overview
 

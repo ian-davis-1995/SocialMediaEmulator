@@ -3,8 +3,14 @@ import json
 import pathlib
 import cherrypy
 
-from cherrypy_utils import url_utils
+from cherrypy_utils.url_utils import combine_url
 from cherrypy_utils.cherrypy_sqlalchemy_utils import SQLAlchemyTool, SQLAlchemyPlugin
+from digital_deception_emulator.backend.configuration.base_config import (
+    get_api_config,
+    get_global_config,
+    get_root_config,
+    get_simple_config,
+)
 
 from digital_deception_emulator.backend.database import Base
 from digital_deception_emulator.backend.experiment.api import (
@@ -20,8 +26,6 @@ from digital_deception_emulator.backend.home.views import (
 from digital_deception_emulator.backend.export.api import ExperimentExportApi
 from digital_deception_emulator.backend.login.views import LoginView
 from digital_deception_emulator.backend.configuration import (
-    production_config,
-    development_config,
     application_data,
 )
 
@@ -29,7 +33,9 @@ from digital_deception_emulator.backend.configuration import (
 def setup_server(subdomain="/", shared_data_location=None, production=True):
     server_directory = pathlib.Path(__file__).parent.absolute()
     template_location = server_directory.joinpath("frontend", "templates").resolve()
-    api_key_filepath = server_directory.joinpath("backend", "configuration", "api.key").resolve()
+    api_key_filepath = server_directory.joinpath(
+        "backend", "configuration", "api.key"
+    ).resolve()
 
     if not shared_data_location:
         shared_data_location = server_directory
@@ -54,12 +60,14 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
 
     if production:
         cherrypy.log("Using production configuration")
-        active_file = production_config.get_config()
+        cherrypy.config.update({"environment": "production"})
     else:
         cherrypy.log("Using development configuration")
-        active_file = development_config.get_config()
 
-    cherrypy.config.update(active_file)
+    cherrypy.config.update(get_global_config())
+    root_config = get_root_config()
+    route_config = get_simple_config()
+    api_config = get_api_config()
 
     cherrypy._cperror._HTTPErrorTemplate = cherrypy._cperror._HTTPErrorTemplate.replace(
         'Powered by <a href="http://www.cherrypy.org">CherryPy %(version)s</a>\n', ""
@@ -67,26 +75,57 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
     cherrypy.server.socket_host = "0.0.0.0"
     cherrypy.tools.digital_deception_database = SQLAlchemyTool("digital_deception")
 
-    cherrypy.tree.mount(HomeView(), subdomain, active_file)
-    cherrypy.tree.mount(PracticeView(), url_utils.combine_url(subdomain, "practice"), active_file)
-    cherrypy.tree.mount(LoginView(), url_utils.combine_url(subdomain, "login"), active_file)
-    cherrypy.tree.mount(HeatmapView(), url_utils.combine_url(subdomain, "heatmap"), active_file)
-    cherrypy.tree.mount(DashboardView(), url_utils.combine_url(subdomain, "dashboard"), active_file)
-    cherrypy.tree.mount(ExperimentTestApi(), url_utils.combine_url(subdomain, "api", "test"), active_file)
-    cherrypy.tree.mount(ExperimentEventApi(), url_utils.combine_url(subdomain, "api", "event"), active_file)
-    cherrypy.tree.mount(ExperimentExportApi(), url_utils.combine_url(subdomain, "api", "export"), active_file)
+    cherrypy.tree.mount(HomeView(), subdomain, root_config)
+    cherrypy.tree.mount(
+        PracticeView(),
+        combine_url(subdomain, "practice"),
+        route_config,
+    )
+    cherrypy.tree.mount(LoginView(), combine_url(subdomain, "login"), route_config)
+    cherrypy.tree.mount(HeatmapView(), combine_url(subdomain, "heatmap"), route_config)
+    cherrypy.tree.mount(
+        DashboardView(),
+        combine_url(subdomain, "dashboard"),
+        route_config,
+    )
+    cherrypy.tree.mount(
+        ExperimentTestApi(),
+        combine_url(subdomain, "api", "test"),
+        api_config,
+    )
+    cherrypy.tree.mount(
+        ExperimentEventApi(),
+        combine_url(subdomain, "api", "event"),
+        api_config,
+    )
+    cherrypy.tree.mount(
+        ExperimentExportApi(),
+        combine_url(subdomain, "api", "export"),
+        api_config,
+    )
 
-    mysql_filepath = pathlib.Path(server_directory, "backend", "configuration", "mysql.credentials").resolve()
+    mysql_filepath = pathlib.Path(
+        server_directory,
+        "backend",
+        "configuration",
+        "mysql.credentials",
+    ).resolve()
 
     # mysql connection:
     # mysql+pymysql://<username>:<password>@<host>/<dbname>[?<options>]
     if production and mysql_filepath.exists():
         with open(mysql_filepath, "r") as mysql_credentials_file:
             credentials = json.load(mysql_credentials_file)
-            connection_string = str("mysql+pymysql://{username}:{password}@{host}/{db_name}").format_map(credentials)
+            connection_string = str(
+                "mysql+pymysql://{username}:{password}@{host}/{db_name}"
+            ).format_map(credentials)
     else:
-        cherrypy.log("Using sqlite database file as we aren't in production or mysql credentials doesn't exist!")
-        database_filepath = str(pathlib.Path(shared_data_location, "digital_deception.db").resolve())
+        cherrypy.log(
+            "Using sqlite database file as we aren't in production or mysql credentials doesn't exist!"
+        )
+        database_filepath = str(
+            pathlib.Path(shared_data_location, "digital_deception.db").resolve()
+        )
         connection_string = "sqlite:///" + database_filepath
 
     SQLAlchemyPlugin(
@@ -106,7 +145,11 @@ def setup_server(subdomain="/", shared_data_location=None, production=True):
 
 
 def run(subdomain="/", production=False, shared_data_location=None, port=8080):
-    setup_server(subdomain=subdomain, production=production, shared_data_location=shared_data_location)
+    setup_server(
+        subdomain=subdomain,
+        production=production,
+        shared_data_location=shared_data_location,
+    )
 
     cherrypy.log("setting server port to:" + str(port))
     cherrypy.config.update({"server.socket_port": port})
@@ -118,9 +161,18 @@ def run(subdomain="/", production=False, shared_data_location=None, port=8080):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Run the Digital Deception Emulator web server")
-    parser.add_argument("--subdomain", default="/", help="The sub domain to mount the app at")
-    parser.add_argument("--production", default=False, action="store_true", help="Enable production mode")
-    parser.add_argument("--shared_data_location", help="The location of the root shared data folder")
+    parser.add_argument(
+        "--subdomain", default="/", help="The sub domain to mount the app at"
+    )
+    parser.add_argument(
+        "--production",
+        default=False,
+        action="store_true",
+        help="Enable production mode",
+    )
+    parser.add_argument(
+        "--shared_data_location", help="The location of the root shared data folder"
+    )
     parser.add_argument("--port", type=int, help="The port to listen on", default=8080)
     args = parser.parse_args()
     run(

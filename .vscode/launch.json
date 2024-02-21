@@ -2,13 +2,13 @@
     "configurations": [
         {
             "command": "npm run start-experiment",
-            "name": "Experiment Debug",
+            "name": "[DEVELOPMENT][REACTJS] Debug ReactJS Frontend",
             "request": "launch",
             "type": "node-terminal",
             "cwd": "${workspaceFolder}/digital_deception_emulator/frontend/emulator"
         },
         {
-            "name": "Cherrypy Server",
+            "name": "[PRODUCTION][CHERRYPY] Run Server",
             "type": "python",
             "request": "launch",
             "module": "digital_deception_emulator.application",
