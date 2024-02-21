@@ -129,6 +129,7 @@ export default class CommentProvider {
                 this.shuffled_comment_bank[category].current_index
         );
 
+        // Get the next randomized author for this comment from our comment provider.
         comment.author = this.author_provider.getNextAuthor();
 
         return comment;

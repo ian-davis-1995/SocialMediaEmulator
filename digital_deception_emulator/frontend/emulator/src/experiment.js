@@ -218,6 +218,7 @@ class PilotExperiment extends React.Component {
 
         const postsWithComments = POST_DATA.map((post) => {
             post["category"] = "historic";
+            // Get a set of randomize comments for this post (currently, this defaults to 2 per post).
             const replies = this.commentProvider.getCommentsForPost(post);
             post["replies"] = replies;
             console.debug("picking comments for post", post);
