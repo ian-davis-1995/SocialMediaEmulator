@@ -8,15 +8,11 @@ It is currently hosted on MindModeling as part of a larger web server project, O
 
 To get started developing with this repository, follow this checklist:
 
+1. Ensure you have python 3.6+ installed, along with `pip`.
 1. Clone the repository. `git clone https://git.mindmodeling.org/ian.davis/DigitalDeceptionEmulator.git`
-1. Install pipenv. `pip install pipenv`
-1. Setup the pipenv environment. `pipenv install`. This will install all required packages.
-1. Now, to ensure you are running the pipenv environment python, `pipenv shell` which will activate pipenv for your terminal session.
+1. Install the `cherrypy_utils` python package. This should have been provided to you as a zip or git repository.
+1. Install third party required packages: `pip install -r requirements.txt`.
+1. Build the reactjs bundle: `cd digital_deception_emulator/frontend/emulator/; npm run build`
+1. Ensure your PYTHONPATH environment variable includes the root of the git repository (the location of this README).
+    1. If you are using VSCode, the integrated terminal and run configurations should be configured to include the correct pythonpath automatically.
 1. Running the web server for just this project can be done with this command: `python digital_deception_emulator/application.py`
-
-This project is also packaged up and can be installed and ran by simply using pip!
-
-1. Clone the repository. `git clone https://git.mindmodeling.org/ian.davis/DigitalDeceptionEmulator.git`
-1. Install the repository using pip: `pip install .`
-1. Run the application: `python -m digital_deception_emulator.application`
-1. Enjoy!

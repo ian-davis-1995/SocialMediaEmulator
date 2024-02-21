@@ -15,30 +15,19 @@ RUN npm run build
 ## Python Build Image
 FROM cgr.dev/chainguard/python:latest-dev as python-builder
 
-ARG ARTIFACT_URL
-
 WORKDIR /DigitalDeception/
 
 COPY ./requirements.txt ./
-COPY ./gcp.requirements.txt ./
 
 RUN pip install -r requirements.txt --user
-RUN pip install -r gcp.requirements.txt --user --extra-index-url $ARTIFACT_URL
 
 ## Main Server Image
-FROM cgr.dev/chainguard/wolfi-base:latest
+FROM cgr.dev/chainguard/python:latest
 
 WORKDIR /DigitalDeception/
 
-ARG GCSFUSE_ENABLED=0
-
-RUN apk add --update gcsfuse python-3.12
-
-COPY ./digital_deception.db /DigitalDeception/data/
-
 ENV PYTHONPATH "${PYTHONPATH}:/DigitalDeception/:/DigitalDeception/site-packages/"
-ENV PORT=5001
-ENV BUCKET digital_deception_data
+ENV PORT=8080
 ENV MNT_DIR /DigitalDeception/data/
 
 COPY ./digital_deception_emulator/frontend/assets ./digital_deception_emulator/frontend
@@ -55,7 +44,7 @@ COPY ./digital_deception_emulator/frontend/templates ./digital_deception_emulato
 COPY ./digital_deception_emulator/__init__.py /DigitalDeception/digital_deception_emulator
 COPY ./digital_deception_emulator/application.py /DigitalDeception/digital_deception_emulator
 COPY ./digital_deception_emulator/backend /DigitalDeception/digital_deception_emulator/backend
-COPY ./scripts/gcp/run_gcp_service.py ./run_server.py
+COPY ./docker/run_server.py ./run_server.py
 
 EXPOSE $PORT
 

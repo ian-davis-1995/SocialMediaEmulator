@@ -2,3 +2,4 @@ cherrypy>=18.6.1
 jinja2
 sqlalchemy>=1.4.36
 pymysql
+cherrypy_utils

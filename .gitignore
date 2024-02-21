@@ -11,3 +11,5 @@ notes/
 
 keys/
 venv/
+
+cherrypy_utils/
