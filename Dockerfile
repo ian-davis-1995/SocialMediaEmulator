@@ -17,6 +17,14 @@ FROM cgr.dev/chainguard/python:latest-dev as python-builder
 
 WORKDIR /DigitalDeception/
 
+COPY ./cherrypy_utils ./cherrypy_utils
+
+WORKDIR /DigitalDeception/cherrypy_utils
+
+RUN pip install .
+
+WORKDIR /DigitalDeception/
+
 COPY ./requirements.txt ./
 
 RUN pip install -r requirements.txt --user
@@ -48,4 +56,4 @@ COPY ./docker/run_server.py ./run_server.py
 
 EXPOSE $PORT
 
-CMD ["python", "./run_server.py"]
+CMD ["./run_server.py"]

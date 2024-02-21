@@ -21,6 +21,9 @@ def main():
     port = os.environ.get("PORT", "3000")
     mount_dir = os.environ.get("MNT_DIR", "./")
 
+    if not os.path.exists(mount_dir):
+        os.makedirs(mount_dir)
+
     run(
         subdomain="/",
         port=int(port),
