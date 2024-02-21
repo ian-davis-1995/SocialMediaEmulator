@@ -45,7 +45,10 @@ To get started developing with this repository, follow this checklist:
 1. Build the reactjs bundle: `cd social_media_emulator/frontend/emulator/; npm run build`
 1. Ensure your PYTHONPATH environment variable includes the root of the git repository (the location of this README).
     1. If you are using VSCode, the integrated terminal and run configurations should be configured to include the correct pythonpath automatically.
-1. Running the web server for just this project can be done with this command: `python social_media_emulator/application.py`
+1. Run the web server with this command: `python social_media_emulator/application.py`
+1. Navigate your browser to `http://localhost:8080?test_id=test123`.
+
+The server stores user data attached to an identifier referred to as the `test_id`. This must be passed as a url parameter and controls how the user interaction data is saved to the database.
 
 As shell commands (macos, linux):
 
@@ -147,3 +150,7 @@ To that end, the overall source code architecture is separated as follows:
 -   [emulator](social_media_emulator/frontend/emulator): The ReactJS frontend code.
 -   [templates](social_media_emulator/frontend/templates): These are Jinja2 templates rendered by cherrypy which primarily aid in passing configuration from the cherrypy webserver to the ReactJS frontend.
 -   [assets](social_media_emulator/frontend/assets): This folder is configured to be statically hosted by the cherrypy frontend and is referenced in [post_data.json](social_media_emulator/frontend/emulator/src/stimuli/post_data.json) for images, videos and other static assets to be displayed.
+
+# Practice Mode
+
+The emulator also has support for a 'practice mode' which runs via the
