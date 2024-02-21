@@ -5,27 +5,27 @@ import cherrypy
 
 from cherrypy_utils.url_utils import combine_url
 from cherrypy_utils.cherrypy_sqlalchemy_utils import SQLAlchemyTool, SQLAlchemyPlugin
-from digital_deception_emulator.backend.configuration.base_config import (
+from social_media_emulator.backend.configuration.base_config import (
     get_api_config,
     get_global_config,
     get_root_config,
     get_simple_config,
 )
 
-from digital_deception_emulator.backend.database import Base
-from digital_deception_emulator.backend.experiment.api import (
+from social_media_emulator.backend.database import Base
+from social_media_emulator.backend.experiment.api import (
     ExperimentTestApi,
     ExperimentEventApi,
 )
-from digital_deception_emulator.backend.home.views import (
+from social_media_emulator.backend.home.views import (
     HomeView,
     DashboardView,
     HeatmapView,
     PracticeView,
 )
-from digital_deception_emulator.backend.export.api import ExperimentExportApi
-from digital_deception_emulator.backend.login.views import LoginView
-from digital_deception_emulator.backend.configuration import (
+from social_media_emulator.backend.export.api import ExperimentExportApi
+from social_media_emulator.backend.login.views import LoginView
+from social_media_emulator.backend.configuration import (
     application_data,
 )
 

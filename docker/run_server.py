@@ -2,7 +2,7 @@
 import os
 import logging
 
-from digital_deception_emulator.application import run
+from social_media_emulator.application import run
 
 logger = logging.getLogger("social_media_emulator")
 

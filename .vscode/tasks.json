@@ -4,7 +4,7 @@
         {
             "type": "npm",
             "script": "build",
-            "path": "digital_deception_emulator/frontend/emulator",
+            "path": "social_media_emulator/frontend/emulator",
             "group": "build",
             "problemMatcher": [],
             "label": "npm_build_all",

@@ -1,6 +1,6 @@
 import cherrypy
 
-from digital_deception_emulator.backend.configuration import application_data
+from social_media_emulator.backend.configuration import application_data
 
 
 # noinspection PyPep8Naming, PyMethodMayBeStatic

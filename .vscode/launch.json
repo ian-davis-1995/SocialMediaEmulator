@@ -5,13 +5,13 @@
             "name": "[DEVELOPMENT][REACTJS] Debug ReactJS Frontend",
             "request": "launch",
             "type": "node-terminal",
-            "cwd": "${workspaceFolder}/digital_deception_emulator/frontend/emulator"
+            "cwd": "${workspaceFolder}/social_media_emulator/frontend/emulator"
         },
         {
             "name": "[PRODUCTION][CHERRYPY] Run Server",
             "type": "python",
             "request": "launch",
-            "module": "digital_deception_emulator.application",
+            "module": "social_media_emulator.application",
             "justMyCode": true,
             "preLaunchTask": "npm_build_all",
             "env": {

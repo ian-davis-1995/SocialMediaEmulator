@@ -3,8 +3,8 @@ import cherrypy
 import io
 import zipfile
 
-from digital_deception_emulator.backend.configuration import application_data
-from digital_deception_emulator.backend.export.export_emulator_data import (
+from social_media_emulator.backend.configuration import application_data
+from social_media_emulator.backend.export.export_emulator_data import (
     export_session_csv,
     export_session_summary,
 )
@@ -55,14 +55,20 @@ class ExperimentExportApi:
 
         archive_io = io.BytesIO()
 
-        with zipfile.ZipFile(archive_io, mode="w", compression=zipfile.ZIP_DEFLATED) as zip_file:
+        with zipfile.ZipFile(
+            archive_io, mode="w", compression=zipfile.ZIP_DEFLATED
+        ) as zip_file:
             zip_file.writestr(self.get_main_filename(subject_ids), output.getvalue())
-            zip_file.writestr(self.get_summary_filename(subject_ids), summary_output.getvalue())
+            zip_file.writestr(
+                self.get_summary_filename(subject_ids), summary_output.getvalue()
+            )
 
         return self.serve_static(self.get_archive_filename(subject_ids), archive_io)
 
     def get_main_filename(self, subject_ids):
-        return "dd_export_{0}_{1}.csv".format("-".join(subject_ids), datetime.datetime.now().strftime("%Y-%m-%d_%H-%M"))
+        return "dd_export_{0}_{1}.csv".format(
+            "-".join(subject_ids), datetime.datetime.now().strftime("%Y-%m-%d_%H-%M")
+        )
 
     def get_summary_filename(self, subject_ids):
         return "dd_summary_{0}_{1}.csv".format(
@@ -80,4 +86,6 @@ class ExperimentExportApi:
         data.seek(0)
         # encoded_output = io.BytesIO(data.read().encode("utf8"))
         # encoded_output.seek(0)
-        return static.serve_fileobj(data, "application/x-download", "attachment", filename, debug=True)
+        return static.serve_fileobj(
+            data, "application/x-download", "attachment", filename, debug=True
+        )

@@ -3,8 +3,8 @@ import cherrypy
 from cherrypy_utils import url_utils
 from cherrypy_utils.login import models
 
-from digital_deception_emulator.backend.configuration import application_data
-from digital_deception_emulator.backend.experiment.models import ExperimentEventRecord
+from social_media_emulator.backend.configuration import application_data
+from social_media_emulator.backend.experiment.models import ExperimentEventRecord
 
 
 # noinspection PyPep8Naming, PyMethodMayBeStatic
@@ -53,8 +53,13 @@ class PracticeView:
 @cherrypy.expose
 class DashboardView:
     def GET(self):
-        if application_data.get_app().is_production_mode() and not models.ldap_user_authenticated():
-            raise cherrypy.HTTPRedirect(url_utils.combine_url(application_data.get_app().subdomain, "login"))
+        if (
+            application_data.get_app().is_production_mode()
+            and not models.ldap_user_authenticated()
+        ):
+            raise cherrypy.HTTPRedirect(
+                url_utils.combine_url(application_data.get_app().subdomain, "login")
+            )
 
         return (
             application_data.get_app()
@@ -67,8 +72,13 @@ class DashboardView:
 @cherrypy.expose
 class HeatmapView:
     def GET(self, test_id=None):
-        if application_data.get_app().is_production_mode() and not models.ldap_user_authenticated():
-            raise cherrypy.HTTPRedirect(url_utils.combine_url(application_data.get_app().subdomain, "login"))
+        if (
+            application_data.get_app().is_production_mode()
+            and not models.ldap_user_authenticated()
+        ):
+            raise cherrypy.HTTPRedirect(
+                url_utils.combine_url(application_data.get_app().subdomain, "login")
+            )
 
         if not test_id:
             raise cherrypy.HTTPError(status=400, message="No test id provided!")

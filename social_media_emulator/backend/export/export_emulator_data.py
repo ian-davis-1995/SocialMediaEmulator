@@ -6,8 +6,8 @@ from collections import OrderedDict
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
-from digital_deception_emulator.backend.database import Base
-from digital_deception_emulator.backend.experiment.models import (
+from social_media_emulator.backend.database import Base
+from social_media_emulator.backend.experiment.models import (
     ExperimentEventRecord,
     ExperimentTestRecord,
 )

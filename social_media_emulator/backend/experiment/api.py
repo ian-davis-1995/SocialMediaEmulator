@@ -1,6 +1,6 @@
 import cherrypy
 
-from digital_deception_emulator.backend.experiment.models import (
+from social_media_emulator.backend.experiment.models import (
     ExperimentEventRecord,
     ExperimentTestRecord,
 )

@@ -1,4 +1,4 @@
-cd digital_deception_emulator/frontend/emulator
+cd social_media_emulator/frontend/emulator
 npm run dev-build
 cd ../../../
-python -m digital_deception_emulator.application
+python -m social_media_emulator.application
