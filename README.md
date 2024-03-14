@@ -12,27 +12,36 @@ storing a recreatable log of how the user interacts with the page over time.
 
 A short preview of the types of events available includes:
 
--   ExperimentFinished
--   MouseClickedElement
--   MouseEnteredElement
--   MouseLeftElement
--   MouseMove
--   MulitChoiceAnswerChanged
--   PostCameIntoView
--   PostLeftView
--   PostRepliesOpened
--   PostRepliesClosed
--   PriorKnowledgeAnswerChanged (no longer used)
--   ReplyCameIntoView
--   ReplyLeftView
--   RequiredResponseCriteriaMet: used for Qualtrics. A message is sent to the Qualtrics window and is used to enable the next page button in qualtrics when the required emulator criteria is met.
--   StorySegmentRead
--   UnhandledError: Raised whenever an unhandled error happens in the emulator
--   UserScrolledFeed
--   UserScrolledPopup
--   UserScrolledReplies
+- ExperimentFinished
+- MouseClickedElement
+- MouseEnteredElement
+- MouseLeftElement
+- MouseMove
+- MulitChoiceAnswerChanged
+- PostCameIntoView
+- PostLeftView
+- PostRepliesOpened
+- PostRepliesClosed
+- PriorKnowledgeAnswerChanged (no longer used)
+- ReplyCameIntoView
+- ReplyLeftView
+- RequiredResponseCriteriaMet: used for Qualtrics. A message is sent to the Qualtrics window and is used to enable the next page button in qualtrics when the required emulator criteria is met.
+- StorySegmentRead
+- UnhandledError: Raised whenever an unhandled error happens in the emulator
+- UserScrolledFeed
+- UserScrolledPopup
+- UserScrolledReplies
 
 All user interaction handling is done inside [user_interaction_tracker.js](social_media_emulator/frontend/emulator/src/user_interaction_tracker.js#L88)
+
+# Technology Stack
+
+The social media emulator is built with the following technologies:
+
+- Python 3.10.x
+- Cherrypy 18.9.0
+- NodeJS 21.7
+- ReactJS 17.x
 
 ## Getting Started
 
@@ -44,7 +53,7 @@ To get started developing with this repository, follow this checklist:
 1. Install third party required packages: `pip install -r requirements.txt`.
 1. Build the reactjs bundle: `cd social_media_emulator/frontend/emulator/; npm run build`
 1. Ensure your PYTHONPATH environment variable includes the root of the git repository (the location of this README).
-    1. If you are using VSCode, the integrated terminal and run configurations should be configured to include the correct pythonpath automatically.
+   1. If you are using VSCode, the integrated terminal and run configurations should be configured to include the correct pythonpath automatically.
 1. Run the web server with this command: `python social_media_emulator/application.py`
 1. Navigate your browser to `http://localhost:8080?test_id=test123`.
 
@@ -146,10 +155,10 @@ While the web server backend logic is CherryPy, the primary application logic an
 
 To that end, the overall source code architecture is separated as follows:
 
--   [backend](social_media_emulator/frontend/emulator/): The CherryPy backend code
--   [emulator](social_media_emulator/frontend/emulator): The ReactJS frontend code.
--   [templates](social_media_emulator/frontend/templates): These are Jinja2 templates rendered by cherrypy which primarily aid in passing configuration from the cherrypy webserver to the ReactJS frontend.
--   [assets](social_media_emulator/frontend/assets): This folder is configured to be statically hosted by the cherrypy frontend and is referenced in [post_data.json](social_media_emulator/frontend/emulator/src/stimuli/post_data.json) for images, videos and other static assets to be displayed.
+- [backend](social_media_emulator/frontend/emulator/): The CherryPy backend code
+- [emulator](social_media_emulator/frontend/emulator): The ReactJS frontend code.
+- [templates](social_media_emulator/frontend/templates): These are Jinja2 templates rendered by cherrypy which primarily aid in passing configuration from the cherrypy webserver to the ReactJS frontend.
+- [assets](social_media_emulator/frontend/assets): This folder is configured to be statically hosted by the cherrypy frontend and is referenced in [post_data.json](social_media_emulator/frontend/emulator/src/stimuli/post_data.json) for images, videos and other static assets to be displayed.
 
 # Practice Mode
 
