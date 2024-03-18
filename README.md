@@ -49,7 +49,6 @@ To get started developing with this repository, follow this checklist:
 
 1. Ensure you have python 3.6+ installed, along with `pip`.
 1. Clone the repository.
-1. Install the `cherrypy_utils` python package. This should have been provided to you as a zip or git repository.
 1. Install third party required packages: `pip install -r requirements.txt`.
 1. Build the reactjs bundle: `cd social_media_emulator/frontend/emulator/; npm run build`
 1. Ensure your PYTHONPATH environment variable includes the root of the git repository (the location of this README).
